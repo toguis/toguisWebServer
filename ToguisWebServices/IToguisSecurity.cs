@@ -9,7 +9,6 @@ using ToguisModel;
 
 namespace ToguisWebServices
 {
-    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IToguisSecurity" en el código y en el archivo de configuración a la vez.
     [ServiceContract]
     public interface IToguisSecurity
     {
