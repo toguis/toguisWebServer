@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ToguisModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ToguisModelStoreContainer">
+          <EntitySet Name="TG_AUTHENTICATION_TYPE" EntityType="ToguisModel.Store.TG_AUTHENTICATION_TYPE" store:Type="Tables" Schema="TOGUIS" />
+          <EntitySet Name="TG_GENDER" EntityType="ToguisModel.Store.TG_GENDER" store:Type="Tables" Schema="TOGUIS" />
+          <EntitySet Name="TG_ROLE" EntityType="ToguisModel.Store.TG_ROLE" store:Type="Tables" Schema="TOGUIS" />
+          <EntitySet Name="TG_USER" EntityType="ToguisModel.Store.TG_USER" store:Type="Tables" Schema="TOGUIS" />
+          <AssociationSet Name="FK_TG_USER_AUTHENTIC_TG_AUTHE" Association="ToguisModel.Store.FK_TG_USER_AUTHENTIC_TG_AUTHE">
+            <End Role="TG_AUTHENTICATION_TYPE" EntitySet="TG_AUTHENTICATION_TYPE" />
+            <End Role="TG_USER" EntitySet="TG_USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_USER_GENDER_US_TG_GENDE" Association="ToguisModel.Store.FK_TG_USER_GENDER_US_TG_GENDE">
+            <End Role="TG_GENDER" EntitySet="TG_GENDER" />
+            <End Role="TG_USER" EntitySet="TG_USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_USER_ROLE_USER_TG_ROLE" Association="ToguisModel.Store.FK_TG_USER_ROLE_USER_TG_ROLE">
+            <End Role="TG_ROLE" EntitySet="TG_ROLE" />
+            <End Role="TG_USER" EntitySet="TG_USER" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TG_AUTHENTICATION_TYPE">
+          <Key>
+            <PropertyRef Name="AUTH_ID" />
+          </Key>
+          <Property Name="AUTH_ID" Type="int" Nullable="false" />
+          <Property Name="AUTH_NAME" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TG_GENDER">
+          <Key>
+            <PropertyRef Name="GND_ID" />
+          </Key>
+          <Property Name="GND_ID" Type="smallint" Nullable="false" />
+          <Property Name="GND_NAME" Type="varchar" Nullable="false" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="TG_ROLE">
+          <Key>
+            <PropertyRef Name="ROL_ID" />
+          </Key>
+          <Property Name="ROL_ID" Type="smallint" Nullable="false" />
+          <Property Name="ROL_NAME" Type="varchar" Nullable="false" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="TG_USER">
+          <Key>
+            <PropertyRef Name="USR_ID" />
+          </Key>
+          <Property Name="USR_ID" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="GND_ID" Type="smallint" Nullable="false" />
+          <Property Name="AUTH_ID" Type="int" Nullable="false" />
+          <Property Name="ROL_ID" Type="smallint" Nullable="false" />
+          <Property Name="USR_NAME" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="USR_LAST_LOGIN" Type="datetime" Nullable="false" />
+          <Property Name="USR_PASWORD" Type="varchar" MaxLength="250" />
+          <Property Name="USR_PHONE_NUMBER" Type="varchar" MaxLength="20" />
+          <Property Name="USR_EMAIL" Type="varchar" MaxLength="250" />
+          <Property Name="USR_IMAGE" Type="varchar" MaxLength="1024" />
+        </EntityType>
+        <Association Name="FK_TG_USER_AUTHENTIC_TG_AUTHE">
+          <End Role="TG_AUTHENTICATION_TYPE" Type="ToguisModel.Store.TG_AUTHENTICATION_TYPE" Multiplicity="1" />
+          <End Role="TG_USER" Type="ToguisModel.Store.TG_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_AUTHENTICATION_TYPE">
+              <PropertyRef Name="AUTH_ID" />
+            </Principal>
+            <Dependent Role="TG_USER">
+              <PropertyRef Name="AUTH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_USER_GENDER_US_TG_GENDE">
+          <End Role="TG_GENDER" Type="ToguisModel.Store.TG_GENDER" Multiplicity="1" />
+          <End Role="TG_USER" Type="ToguisModel.Store.TG_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_GENDER">
+              <PropertyRef Name="GND_ID" />
+            </Principal>
+            <Dependent Role="TG_USER">
+              <PropertyRef Name="GND_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_USER_ROLE_USER_TG_ROLE">
+          <End Role="TG_ROLE" Type="ToguisModel.Store.TG_ROLE" Multiplicity="1" />
+          <End Role="TG_USER" Type="ToguisModel.Store.TG_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_ROLE">
+              <PropertyRef Name="ROL_ID" />
+            </Principal>
+            <Dependent Role="TG_USER">
+              <PropertyRef Name="ROL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ToguisModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ToguisEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="TG_AUTHENTICATION_TYPE" EntityType="ToguisModel.TG_AUTHENTICATION_TYPE" />
+          <EntitySet Name="TG_GENDER" EntityType="ToguisModel.TG_GENDER" />
+          <EntitySet Name="TG_ROLE" EntityType="ToguisModel.TG_ROLE" />
+          <EntitySet Name="TG_USER" EntityType="ToguisModel.TG_USER" />
+          <AssociationSet Name="FK_TG_USER_AUTHENTIC_TG_AUTHE" Association="ToguisModel.FK_TG_USER_AUTHENTIC_TG_AUTHE">
+            <End Role="TG_AUTHENTICATION_TYPE" EntitySet="TG_AUTHENTICATION_TYPE" />
+            <End Role="TG_USER" EntitySet="TG_USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_USER_GENDER_US_TG_GENDE" Association="ToguisModel.FK_TG_USER_GENDER_US_TG_GENDE">
+            <End Role="TG_GENDER" EntitySet="TG_GENDER" />
+            <End Role="TG_USER" EntitySet="TG_USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_USER_ROLE_USER_TG_ROLE" Association="ToguisModel.FK_TG_USER_ROLE_USER_TG_ROLE">
+            <End Role="TG_ROLE" EntitySet="TG_ROLE" />
+            <End Role="TG_USER" EntitySet="TG_USER" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TG_AUTHENTICATION_TYPE">
+          <Key>
+            <PropertyRef Name="AUTH_ID" />
+          </Key>
+          <Property Name="AUTH_ID" Type="Int32" Nullable="false" />
+          <Property Name="AUTH_NAME" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="TG_USER" Relationship="ToguisModel.FK_TG_USER_AUTHENTIC_TG_AUTHE" FromRole="TG_AUTHENTICATION_TYPE" ToRole="TG_USER" />
+        </EntityType>
+        <EntityType Name="TG_GENDER">
+          <Key>
+            <PropertyRef Name="GND_ID" />
+          </Key>
+          <Property Name="GND_ID" Type="Int16" Nullable="false" />
+          <Property Name="GND_NAME" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="TG_USER" Relationship="ToguisModel.FK_TG_USER_GENDER_US_TG_GENDE" FromRole="TG_GENDER" ToRole="TG_USER" />
+        </EntityType>
+        <EntityType Name="TG_ROLE">
+          <Key>
+            <PropertyRef Name="ROL_ID" />
+          </Key>
+          <Property Name="ROL_ID" Type="Int16" Nullable="false" />
+          <Property Name="ROL_NAME" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="TG_USER" Relationship="ToguisModel.FK_TG_USER_ROLE_USER_TG_ROLE" FromRole="TG_ROLE" ToRole="TG_USER" />
+        </EntityType>
+        <EntityType Name="TG_USER">
+          <Key>
+            <PropertyRef Name="USR_ID" />
+          </Key>
+          <Property Name="USR_ID" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="GND_ID" Type="Int16" Nullable="false" />
+          <Property Name="AUTH_ID" Type="Int32" Nullable="false" />
+          <Property Name="ROL_ID" Type="Int16" Nullable="false" />
+          <Property Name="USR_LAST_LOGIN" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="USR_PASWORD" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="USR_PHONE_NUMBER" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="USR_EMAIL" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="USR_IMAGE" Type="String" MaxLength="1024" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="TG_AUTHENTICATION_TYPE" Relationship="ToguisModel.FK_TG_USER_AUTHENTIC_TG_AUTHE" FromRole="TG_USER" ToRole="TG_AUTHENTICATION_TYPE" />
+          <NavigationProperty Name="TG_GENDER" Relationship="ToguisModel.FK_TG_USER_GENDER_US_TG_GENDE" FromRole="TG_USER" ToRole="TG_GENDER" />
+          <NavigationProperty Name="TG_ROLE" Relationship="ToguisModel.FK_TG_USER_ROLE_USER_TG_ROLE" FromRole="TG_USER" ToRole="TG_ROLE" />
+          <Property Type="String" Name="USR_NAME" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_TG_USER_AUTHENTIC_TG_AUTHE">
+          <End Role="TG_AUTHENTICATION_TYPE" Type="ToguisModel.TG_AUTHENTICATION_TYPE" Multiplicity="1" />
+          <End Role="TG_USER" Type="ToguisModel.TG_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_AUTHENTICATION_TYPE">
+              <PropertyRef Name="AUTH_ID" />
+            </Principal>
+            <Dependent Role="TG_USER">
+              <PropertyRef Name="AUTH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_USER_GENDER_US_TG_GENDE">
+          <End Role="TG_GENDER" Type="ToguisModel.TG_GENDER" Multiplicity="1" />
+          <End Role="TG_USER" Type="ToguisModel.TG_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_GENDER">
+              <PropertyRef Name="GND_ID" />
+            </Principal>
+            <Dependent Role="TG_USER">
+              <PropertyRef Name="GND_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_USER_ROLE_USER_TG_ROLE">
+          <End Role="TG_ROLE" Type="ToguisModel.TG_ROLE" Multiplicity="1" />
+          <End Role="TG_USER" Type="ToguisModel.TG_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_ROLE">
+              <PropertyRef Name="ROL_ID" />
+            </Principal>
+            <Dependent Role="TG_USER">
+              <PropertyRef Name="ROL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ToguisModelStoreContainer" CdmEntityContainer="ToguisEntities">
+          <EntitySetMapping Name="TG_AUTHENTICATION_TYPE">
+            <EntityTypeMapping TypeName="ToguisModel.TG_AUTHENTICATION_TYPE">
+              <MappingFragment StoreEntitySet="TG_AUTHENTICATION_TYPE">
+                <ScalarProperty Name="AUTH_ID" ColumnName="AUTH_ID" />
+                <ScalarProperty Name="AUTH_NAME" ColumnName="AUTH_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TG_GENDER">
+            <EntityTypeMapping TypeName="ToguisModel.TG_GENDER">
+              <MappingFragment StoreEntitySet="TG_GENDER">
+                <ScalarProperty Name="GND_ID" ColumnName="GND_ID" />
+                <ScalarProperty Name="GND_NAME" ColumnName="GND_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TG_ROLE">
+            <EntityTypeMapping TypeName="ToguisModel.TG_ROLE">
+              <MappingFragment StoreEntitySet="TG_ROLE">
+                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+                <ScalarProperty Name="ROL_NAME" ColumnName="ROL_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TG_USER">
+            <EntityTypeMapping TypeName="ToguisModel.TG_USER">
+              <MappingFragment StoreEntitySet="TG_USER">
+                <ScalarProperty Name="USR_NAME" ColumnName="USR_NAME" />
+                <ScalarProperty Name="USR_ID" ColumnName="USR_ID" />
+                <ScalarProperty Name="GND_ID" ColumnName="GND_ID" />
+                <ScalarProperty Name="AUTH_ID" ColumnName="AUTH_ID" />
+                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+                <ScalarProperty Name="USR_LAST_LOGIN" ColumnName="USR_LAST_LOGIN" />
+                <ScalarProperty Name="USR_PASWORD" ColumnName="USR_PASWORD" />
+                <ScalarProperty Name="USR_PHONE_NUMBER" ColumnName="USR_PHONE_NUMBER" />
+                <ScalarProperty Name="USR_EMAIL" ColumnName="USR_EMAIL" />
+                <ScalarProperty Name="USR_IMAGE" ColumnName="USR_IMAGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

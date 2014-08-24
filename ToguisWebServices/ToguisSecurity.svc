@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="ToguisWebServices.ToguisSecurity" CodeBehind="ToguisSecurity.svc.cs" %>

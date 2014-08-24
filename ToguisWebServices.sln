@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToguisWebServices", "ToguisWebServices\ToguisWebServices.csproj", "{46C8C269-9B2D-444E-AA0C-3E33AC0202BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToguisEntities", "ToguisEntities\ToguisEntities.csproj", "{FE677E8B-B8F1-4A92-9EE7-7F31A0F60E5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46C8C269-9B2D-444E-AA0C-3E33AC0202BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46C8C269-9B2D-444E-AA0C-3E33AC0202BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46C8C269-9B2D-444E-AA0C-3E33AC0202BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46C8C269-9B2D-444E-AA0C-3E33AC0202BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE677E8B-B8F1-4A92-9EE7-7F31A0F60E5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE677E8B-B8F1-4A92-9EE7-7F31A0F60E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE677E8B-B8F1-4A92-9EE7-7F31A0F60E5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE677E8B-B8F1-4A92-9EE7-7F31A0F60E5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
