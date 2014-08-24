@@ -17,6 +17,6 @@ namespace ToguisWebServices
         [OperationContract]
         [WebGet(UriTemplate = "getuser?login={login}", ResponseFormat = WebMessageFormat.Json)]
         TG_USER getUser(String login);
-     
+      
     }
 }
