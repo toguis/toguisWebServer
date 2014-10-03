@@ -14,8 +14,12 @@ namespace ToguisWebServices
     {
 
         [OperationContract]
-        [WebGet(UriTemplate = "getuser?login={login}", ResponseFormat = WebMessageFormat.Json)]
-        TG_USER getUser(String login);
-      
+        [WebGet(UriTemplate = "get_user?login={login}", ResponseFormat = WebMessageFormat.Json)]
+        TG_USER GetUser(String login);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "create_user", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "POST")] 
+        int CreateUser(TG_USER user);
+
     }
 }

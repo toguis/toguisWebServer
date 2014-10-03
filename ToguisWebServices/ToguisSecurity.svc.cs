@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -13,7 +15,7 @@ namespace ToguisWebServices
     public class ToguisSecurity : IToguisSecurity
     {
 
-        public TG_USER getUser(string login)
+        public TG_USER GetUser(string login)
         {
             TG_USER loResult = null; 
             using (ToguisEntities loContext = new ToguisEntities())
@@ -32,5 +34,50 @@ namespace ToguisWebServices
             }
             return loResult;
         }
+
+
+
+        public int CreateUser(TG_USER user)
+        {
+            using (ToguisEntities loContext = new ToguisEntities())
+            {
+                try
+                {
+                    loContext.TG_USER.Add(user);
+                    loContext.SaveChanges();
+                }
+                catch (DbUpdateException ex)
+                {
+                    return 1;
+                }
+                catch (Exception ex)
+                {
+                    return 1;
+                }
+
+            }
+            return 0;            
+        }
+
+
+
+
+        public int test(Test tt)
+        {
+            return 0;
+        }
+    }
+
+
+
+    [DataContract]
+    public class Test
+    {
+        [DataMember]
+        public string OrderID { get; set; }
+
+        [DataMember]
+        public string OrderDate { get; set; }
+
     }
 }

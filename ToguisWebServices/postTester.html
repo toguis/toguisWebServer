@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" src="jquery-2.1.1_min.js"></script>
+<script type="text/javascript">
+	$( document ).ready(function() {
+		$("#send").click(function() {
+			var uri = $("#uri").val();
+			POSTMethodCall();
+		});
+	});
+
+	function SendData(url){
+		
+		var data = $("#data").val();
+		 $.ajax({
+			 type: "POST",
+			 url: url,
+			 data: JSON.stringify(data),
+			 contentType: "application/json; charset=utf-8",
+			 dataType: "json",
+			 processData: true,
+			 success: function (data, status, jqXHR) {
+				 alert("success…" + data);
+			 },
+			 error: function (xhr) {
+				 alert(xhr.responseText);
+			 }
+		 });		
+	}
+	
+	function POSTMethodCall() {
+	    var EmpUser = { "AUTH_ID": 1, "GND_ID": 1, "ROL_ID": 1, "TG_AUTHENTICATION_TYPE": null, "TG_GENDER": null, "TG_ROLE": null, "USR_EMAIL": "carlosmoranteg@gmail.com", "USR_ID": "carlosmoranteg@gmail.com", "USR_IMAGE": null, "USR_LAST_LOGIN": "\/Date(1408856400000-0500)\/", "USR_NAME": "Carlos Morante", "USR_PASWORD": "356a192b7913b04c54574d18c28d46e6395428ab", "USR_PHONE_NUMBER": null };
+           var st = JSON.stringify(EmpUser);
+  
+          $.ajax({
+              type: "POST",
+              url: "http://localhost/ToguisWebServices/ToguisSecurity.svc/create_user",
+              data: JSON.stringify(EmpUser),
+               contentType: "application/json; charset=utf-8",
+              dataType: "json",
+              success: function (data) {
+                  alert('ok');
+              },
+              error:function (data) {
+                  alert(data.responseText);
+              }
+          });
+
+      }
+</script>
+</head>
+
+<body>
+	<form action="" method="post" enctype="application/x-www-form-urlencoded" name="form">
+    	<input name="uri" id="uri" type="text" value="" size="150" /><br />
+    	<textarea id="data" name="data" cols="50" rows="5"></textarea><br />
+        <input id="send" name="Enviar" type="button" value="Enviar" />
+    </form>
+</body>
+</html>
