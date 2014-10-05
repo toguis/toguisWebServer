@@ -14,6 +14,11 @@ namespace ToguisModel
     
     public partial class TG_USER
     {
+        public TG_USER()
+        {
+            this.TG_TEMPORAL_RECOVERY = new HashSet<TG_TEMPORAL_RECOVERY>();
+        }
+    
         public string USR_ID { get; set; }
         public short GND_ID { get; set; }
         public int AUTH_ID { get; set; }
@@ -28,5 +33,6 @@ namespace ToguisModel
         public virtual TG_AUTHENTICATION_TYPE TG_AUTHENTICATION_TYPE { get; set; }
         public virtual TG_GENDER TG_GENDER { get; set; }
         public virtual TG_ROLE TG_ROLE { get; set; }
+        public virtual ICollection<TG_TEMPORAL_RECOVERY> TG_TEMPORAL_RECOVERY { get; set; }
     }
 }

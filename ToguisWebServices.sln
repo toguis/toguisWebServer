@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToguisWebServices", "Toguis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToguisEntities", "ToguisEntities\ToguisEntities.csproj", "{FE677E8B-B8F1-4A92-9EE7-7F31A0F60E5D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToguisController", "ToguisController\ToguisController.csproj", "{21DB6215-6D3E-4FF8-8F00-FA7A9E3ABA06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToguisWeb", "ToguisWeb\ToguisWeb.csproj", "{379DC233-735A-4E53-9E77-4D1943BDC109}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,14 @@ Global
 		{FE677E8B-B8F1-4A92-9EE7-7F31A0F60E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE677E8B-B8F1-4A92-9EE7-7F31A0F60E5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE677E8B-B8F1-4A92-9EE7-7F31A0F60E5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21DB6215-6D3E-4FF8-8F00-FA7A9E3ABA06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21DB6215-6D3E-4FF8-8F00-FA7A9E3ABA06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21DB6215-6D3E-4FF8-8F00-FA7A9E3ABA06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21DB6215-6D3E-4FF8-8F00-FA7A9E3ABA06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{379DC233-735A-4E53-9E77-4D1943BDC109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{379DC233-735A-4E53-9E77-4D1943BDC109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{379DC233-735A-4E53-9E77-4D1943BDC109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{379DC233-735A-4E53-9E77-4D1943BDC109}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

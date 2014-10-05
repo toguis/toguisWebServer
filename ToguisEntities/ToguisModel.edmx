@@ -9,7 +9,12 @@
           <EntitySet Name="TG_AUTHENTICATION_TYPE" EntityType="ToguisModel.Store.TG_AUTHENTICATION_TYPE" store:Type="Tables" Schema="TOGUIS" />
           <EntitySet Name="TG_GENDER" EntityType="ToguisModel.Store.TG_GENDER" store:Type="Tables" Schema="TOGUIS" />
           <EntitySet Name="TG_ROLE" EntityType="ToguisModel.Store.TG_ROLE" store:Type="Tables" Schema="TOGUIS" />
+          <EntitySet Name="TG_TEMPORAL_RECOVERY" EntityType="ToguisModel.Store.TG_TEMPORAL_RECOVERY" store:Type="Tables" Schema="TOGUIS" />
           <EntitySet Name="TG_USER" EntityType="ToguisModel.Store.TG_USER" store:Type="Tables" Schema="TOGUIS" />
+          <AssociationSet Name="FK_TG_TEMPO_USER_TEMP_TG_USER" Association="ToguisModel.Store.FK_TG_TEMPO_USER_TEMP_TG_USER">
+            <End Role="TG_USER" EntitySet="TG_USER" />
+            <End Role="TG_TEMPORAL_RECOVERY" EntitySet="TG_TEMPORAL_RECOVERY" />
+          </AssociationSet>
           <AssociationSet Name="FK_TG_USER_AUTHENTIC_TG_AUTHE" Association="ToguisModel.Store.FK_TG_USER_AUTHENTIC_TG_AUTHE">
             <End Role="TG_AUTHENTICATION_TYPE" EntitySet="TG_AUTHENTICATION_TYPE" />
             <End Role="TG_USER" EntitySet="TG_USER" />
@@ -44,6 +49,15 @@
           <Property Name="ROL_ID" Type="smallint" Nullable="false" />
           <Property Name="ROL_NAME" Type="varchar" Nullable="false" MaxLength="25" />
         </EntityType>
+        <EntityType Name="TG_TEMPORAL_RECOVERY">
+          <Key>
+            <PropertyRef Name="REC_ID" />
+          </Key>
+          <Property Name="REC_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="USR_ID" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="REC_GUID" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="REC_MAX_VALID_DATE" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="TG_USER">
           <Key>
             <PropertyRef Name="USR_ID" />
@@ -59,6 +73,18 @@
           <Property Name="USR_EMAIL" Type="varchar" MaxLength="250" />
           <Property Name="USR_IMAGE" Type="varchar" MaxLength="1024" />
         </EntityType>
+        <Association Name="FK_TG_TEMPO_USER_TEMP_TG_USER">
+          <End Role="TG_USER" Type="ToguisModel.Store.TG_USER" Multiplicity="1" />
+          <End Role="TG_TEMPORAL_RECOVERY" Type="ToguisModel.Store.TG_TEMPORAL_RECOVERY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_USER">
+              <PropertyRef Name="USR_ID" />
+            </Principal>
+            <Dependent Role="TG_TEMPORAL_RECOVERY">
+              <PropertyRef Name="USR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TG_USER_AUTHENTIC_TG_AUTHE">
           <End Role="TG_AUTHENTICATION_TYPE" Type="ToguisModel.Store.TG_AUTHENTICATION_TYPE" Multiplicity="1" />
           <End Role="TG_USER" Type="ToguisModel.Store.TG_USER" Multiplicity="*" />
@@ -116,6 +142,11 @@
             <End Role="TG_ROLE" EntitySet="TG_ROLE" />
             <End Role="TG_USER" EntitySet="TG_USER" />
           </AssociationSet>
+          <EntitySet Name="TG_TEMPORAL_RECOVERY" EntityType="ToguisModel.TG_TEMPORAL_RECOVERY" />
+          <AssociationSet Name="FK_TG_TEMPO_USER_TEMP_TG_USER" Association="ToguisModel.FK_TG_TEMPO_USER_TEMP_TG_USER">
+            <End Role="TG_USER" EntitySet="TG_USER" />
+            <End Role="TG_TEMPORAL_RECOVERY" EntitySet="TG_TEMPORAL_RECOVERY" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="TG_AUTHENTICATION_TYPE">
           <Key>
@@ -158,6 +189,7 @@
           <NavigationProperty Name="TG_GENDER" Relationship="ToguisModel.FK_TG_USER_GENDER_US_TG_GENDE" FromRole="TG_USER" ToRole="TG_GENDER" />
           <NavigationProperty Name="TG_ROLE" Relationship="ToguisModel.FK_TG_USER_ROLE_USER_TG_ROLE" FromRole="TG_USER" ToRole="TG_ROLE" />
           <Property Type="String" Name="USR_NAME" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TG_TEMPORAL_RECOVERY" Relationship="ToguisModel.FK_TG_TEMPO_USER_TEMP_TG_USER" FromRole="TG_USER" ToRole="TG_TEMPORAL_RECOVERY" />
         </EntityType>
         <Association Name="FK_TG_USER_AUTHENTIC_TG_AUTHE">
           <End Role="TG_AUTHENTICATION_TYPE" Type="ToguisModel.TG_AUTHENTICATION_TYPE" Multiplicity="1" />
@@ -192,6 +224,28 @@
             </Principal>
             <Dependent Role="TG_USER">
               <PropertyRef Name="ROL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TG_TEMPORAL_RECOVERY">
+          <Key>
+            <PropertyRef Name="REC_ID" />
+          </Key>
+          <Property Type="Int32" Name="REC_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="USR_ID" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="REC_GUID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="REC_MAX_VALID_DATE" Nullable="false" Precision="3" />
+          <NavigationProperty Name="TG_USER" Relationship="ToguisModel.FK_TG_TEMPO_USER_TEMP_TG_USER" FromRole="TG_TEMPORAL_RECOVERY" ToRole="TG_USER" />
+        </EntityType>
+        <Association Name="FK_TG_TEMPO_USER_TEMP_TG_USER">
+          <End Type="ToguisModel.TG_USER" Role="TG_USER" Multiplicity="1" />
+          <End Type="ToguisModel.TG_TEMPORAL_RECOVERY" Role="TG_TEMPORAL_RECOVERY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_USER">
+              <PropertyRef Name="USR_ID" />
+            </Principal>
+            <Dependent Role="TG_TEMPORAL_RECOVERY">
+              <PropertyRef Name="USR_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -238,6 +292,16 @@
                 <ScalarProperty Name="USR_PHONE_NUMBER" ColumnName="USR_PHONE_NUMBER" />
                 <ScalarProperty Name="USR_EMAIL" ColumnName="USR_EMAIL" />
                 <ScalarProperty Name="USR_IMAGE" ColumnName="USR_IMAGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TG_TEMPORAL_RECOVERY">
+            <EntityTypeMapping TypeName="ToguisModel.TG_TEMPORAL_RECOVERY">
+              <MappingFragment StoreEntitySet="TG_TEMPORAL_RECOVERY">
+                <ScalarProperty Name="REC_MAX_VALID_DATE" ColumnName="REC_MAX_VALID_DATE" />
+                <ScalarProperty Name="REC_GUID" ColumnName="REC_GUID" />
+                <ScalarProperty Name="USR_ID" ColumnName="USR_ID" />
+                <ScalarProperty Name="REC_ID" ColumnName="REC_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

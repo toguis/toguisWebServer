@@ -29,5 +29,6 @@ namespace ToguisModel
         public DbSet<TG_GENDER> TG_GENDER { get; set; }
         public DbSet<TG_ROLE> TG_ROLE { get; set; }
         public DbSet<TG_USER> TG_USER { get; set; }
+        public DbSet<TG_TEMPORAL_RECOVERY> TG_TEMPORAL_RECOVERY { get; set; }
     }
 }
