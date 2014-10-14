@@ -67,12 +67,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ToguisPoints.svc" />
     <Content Include="ToguisSecurity.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IToguisPoints.cs" />
     <Compile Include="IToguisSecurity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToguisPoints.svc.cs">
+      <DependentUpon>ToguisPoints.svc</DependentUpon>
+    </Compile>
     <Compile Include="ToguisSecurity.svc.cs">
       <DependentUpon>ToguisSecurity.svc</DependentUpon>
     </Compile>
@@ -94,6 +99,9 @@
       <Project>{fe677e8b-b8f1-4a92-9ee7-7f31a0f60e5d}</Project>
       <Name>ToguisEntities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\files\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

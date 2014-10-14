@@ -30,5 +30,14 @@ namespace ToguisModel
         public DbSet<TG_ROLE> TG_ROLE { get; set; }
         public DbSet<TG_USER> TG_USER { get; set; }
         public DbSet<TG_TEMPORAL_RECOVERY> TG_TEMPORAL_RECOVERY { get; set; }
+        public DbSet<TG_INTEREST_POINT> TG_INTEREST_POINT { get; set; }
+        public DbSet<TG_LANGUAGE> TG_LANGUAGE { get; set; }
+        public DbSet<TG_POI_DESCRIPTION> TG_POI_DESCRIPTION { get; set; }
+        public DbSet<TG_POI_TYPE> TG_POI_TYPE { get; set; }
+        public DbSet<TG_POI_USER_DATA> TG_POI_USER_DATA { get; set; }
+        public DbSet<TG_CITY> TG_CITY { get; set; }
+        public DbSet<TG_COUNTRY> TG_COUNTRY { get; set; }
+        public DbSet<TG_STATE> TG_STATE { get; set; }
+        public DbSet<TG_COMMENTS> TG_COMMENTS { get; set; }
     }
 }

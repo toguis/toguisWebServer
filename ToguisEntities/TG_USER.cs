@@ -17,6 +17,8 @@ namespace ToguisModel
         public TG_USER()
         {
             this.TG_TEMPORAL_RECOVERY = new HashSet<TG_TEMPORAL_RECOVERY>();
+            this.TG_POI_USER_DATA = new HashSet<TG_POI_USER_DATA>();
+            this.TG_COMMENTS = new HashSet<TG_COMMENTS>();
         }
     
         public string USR_ID { get; set; }
@@ -34,5 +36,7 @@ namespace ToguisModel
         public virtual TG_GENDER TG_GENDER { get; set; }
         public virtual TG_ROLE TG_ROLE { get; set; }
         public virtual ICollection<TG_TEMPORAL_RECOVERY> TG_TEMPORAL_RECOVERY { get; set; }
+        public virtual ICollection<TG_POI_USER_DATA> TG_POI_USER_DATA { get; set; }
+        public virtual ICollection<TG_COMMENTS> TG_COMMENTS { get; set; }
     }
 }

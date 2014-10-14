@@ -53,10 +53,37 @@
     <Compile Include="TG_AUTHENTICATION_TYPE.cs">
       <DependentUpon>ToguisModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="TG_CITY.cs">
+      <DependentUpon>ToguisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TG_COMMENTS.cs">
+      <DependentUpon>ToguisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TG_COUNTRY.cs">
+      <DependentUpon>ToguisModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TG_GENDER.cs">
       <DependentUpon>ToguisModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="TG_INTEREST_POINT.cs">
+      <DependentUpon>ToguisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TG_LANGUAGE.cs">
+      <DependentUpon>ToguisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TG_POI_DESCRIPTION.cs">
+      <DependentUpon>ToguisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TG_POI_TYPE.cs">
+      <DependentUpon>ToguisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TG_POI_USER_DATA.cs">
+      <DependentUpon>ToguisModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TG_ROLE.cs">
+      <DependentUpon>ToguisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TG_STATE.cs">
       <DependentUpon>ToguisModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TG_TEMPORAL_RECOVERY.cs">

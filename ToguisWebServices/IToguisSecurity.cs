@@ -28,5 +28,7 @@ namespace ToguisWebServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "recover_user/{email}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "POST")]
         int RecoverUser(String email);
+
+
     }
 }

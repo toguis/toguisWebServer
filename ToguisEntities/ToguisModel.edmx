@@ -7,10 +7,55 @@
     <Schema Namespace="ToguisModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="ToguisModelStoreContainer">
           <EntitySet Name="TG_AUTHENTICATION_TYPE" EntityType="ToguisModel.Store.TG_AUTHENTICATION_TYPE" store:Type="Tables" Schema="TOGUIS" />
+          <EntitySet Name="TG_CITY" EntityType="ToguisModel.Store.TG_CITY" store:Type="Tables" Schema="TOGUIS" />
+          <EntitySet Name="TG_COMMENTS" EntityType="ToguisModel.Store.TG_COMMENTS" store:Type="Tables" Schema="TOGUIS" />
+          <EntitySet Name="TG_COUNTRY" EntityType="ToguisModel.Store.TG_COUNTRY" store:Type="Tables" Schema="TOGUIS" />
           <EntitySet Name="TG_GENDER" EntityType="ToguisModel.Store.TG_GENDER" store:Type="Tables" Schema="TOGUIS" />
+          <EntitySet Name="TG_INTEREST_POINT" EntityType="ToguisModel.Store.TG_INTEREST_POINT" store:Type="Tables" Schema="TOGUIS" />
+          <EntitySet Name="TG_LANGUAGE" EntityType="ToguisModel.Store.TG_LANGUAGE" store:Type="Tables" Schema="TOGUIS" />
+          <EntitySet Name="TG_POI_DESCRIPTION" EntityType="ToguisModel.Store.TG_POI_DESCRIPTION" store:Type="Tables" Schema="TOGUIS" />
+          <EntitySet Name="TG_POI_TYPE" EntityType="ToguisModel.Store.TG_POI_TYPE" store:Type="Tables" Schema="TOGUIS" />
+          <EntitySet Name="TG_POI_USER_DATA" EntityType="ToguisModel.Store.TG_POI_USER_DATA" store:Type="Tables" Schema="TOGUIS" />
           <EntitySet Name="TG_ROLE" EntityType="ToguisModel.Store.TG_ROLE" store:Type="Tables" Schema="TOGUIS" />
+          <EntitySet Name="TG_STATE" EntityType="ToguisModel.Store.TG_STATE" store:Type="Tables" Schema="TOGUIS" />
           <EntitySet Name="TG_TEMPORAL_RECOVERY" EntityType="ToguisModel.Store.TG_TEMPORAL_RECOVERY" store:Type="Tables" Schema="TOGUIS" />
           <EntitySet Name="TG_USER" EntityType="ToguisModel.Store.TG_USER" store:Type="Tables" Schema="TOGUIS" />
+          <AssociationSet Name="FK_TG_CITY_STATE_CIT_TG_STATE" Association="ToguisModel.Store.FK_TG_CITY_STATE_CIT_TG_STATE">
+            <End Role="TG_STATE" EntitySet="TG_STATE" />
+            <End Role="TG_CITY" EntitySet="TG_CITY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_COMME_USER_COMM_TG_USER" Association="ToguisModel.Store.FK_TG_COMME_USER_COMM_TG_USER">
+            <End Role="TG_USER" EntitySet="TG_USER" />
+            <End Role="TG_COMMENTS" EntitySet="TG_COMMENTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_INTER_CITY_INTE_TG_CITY" Association="ToguisModel.Store.FK_TG_INTER_CITY_INTE_TG_CITY">
+            <End Role="TG_CITY" EntitySet="TG_CITY" />
+            <End Role="TG_INTEREST_POINT" EntitySet="TG_INTEREST_POINT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_INTER_POI_TYPE__TG_POI_T" Association="ToguisModel.Store.FK_TG_INTER_POI_TYPE__TG_POI_T">
+            <End Role="TG_POI_TYPE" EntitySet="TG_POI_TYPE" />
+            <End Role="TG_INTEREST_POINT" EntitySet="TG_INTEREST_POINT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_POI_D_LANGUAGE__TG_LANGU" Association="ToguisModel.Store.FK_TG_POI_D_LANGUAGE__TG_LANGU">
+            <End Role="TG_LANGUAGE" EntitySet="TG_LANGUAGE" />
+            <End Role="TG_POI_DESCRIPTION" EntitySet="TG_POI_DESCRIPTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_POI_D_POINT_INT_TG_INTER" Association="ToguisModel.Store.FK_TG_POI_D_POINT_INT_TG_INTER">
+            <End Role="TG_INTEREST_POINT" EntitySet="TG_INTEREST_POINT" />
+            <End Role="TG_POI_DESCRIPTION" EntitySet="TG_POI_DESCRIPTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_POI_U_INTEREST__TG_INTER" Association="ToguisModel.Store.FK_TG_POI_U_INTEREST__TG_INTER">
+            <End Role="TG_INTEREST_POINT" EntitySet="TG_INTEREST_POINT" />
+            <End Role="TG_POI_USER_DATA" EntitySet="TG_POI_USER_DATA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_POI_U_USER_POI__TG_USER" Association="ToguisModel.Store.FK_TG_POI_U_USER_POI__TG_USER">
+            <End Role="TG_USER" EntitySet="TG_USER" />
+            <End Role="TG_POI_USER_DATA" EntitySet="TG_POI_USER_DATA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_STATE_COUNTRY_S_TG_COUNT" Association="ToguisModel.Store.FK_TG_STATE_COUNTRY_S_TG_COUNT">
+            <End Role="TG_COUNTRY" EntitySet="TG_COUNTRY" />
+            <End Role="TG_STATE" EntitySet="TG_STATE" />
+          </AssociationSet>
           <AssociationSet Name="FK_TG_TEMPO_USER_TEMP_TG_USER" Association="ToguisModel.Store.FK_TG_TEMPO_USER_TEMP_TG_USER">
             <End Role="TG_USER" EntitySet="TG_USER" />
             <End Role="TG_TEMPORAL_RECOVERY" EntitySet="TG_TEMPORAL_RECOVERY" />
@@ -35,6 +80,33 @@
           <Property Name="AUTH_ID" Type="int" Nullable="false" />
           <Property Name="AUTH_NAME" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
+        <EntityType Name="TG_CITY">
+          <Key>
+            <PropertyRef Name="CITY_ID" />
+          </Key>
+          <Property Name="CITY_ID" Type="int" Nullable="false" />
+          <Property Name="STE_ID" Type="int" />
+          <Property Name="CITY_NAME" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="CITY_WOEID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TG_COMMENTS">
+          <Key>
+            <PropertyRef Name="COM_ID" />
+          </Key>
+          <Property Name="COM_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="USR_ID" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="COM_COMMENT" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="POI_ID" Type="int" Nullable="false" />
+          <Property Name="COM_DATE" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TG_COUNTRY">
+          <Key>
+            <PropertyRef Name="CTR_ID" />
+          </Key>
+          <Property Name="CTR_ID" Type="int" Nullable="false" />
+          <Property Name="CTR_NAME" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="CTR_ISO_CODE" Type="varchar" Nullable="false" MaxLength="3" />
+        </EntityType>
         <EntityType Name="TG_GENDER">
           <Key>
             <PropertyRef Name="GND_ID" />
@@ -42,12 +114,69 @@
           <Property Name="GND_ID" Type="smallint" Nullable="false" />
           <Property Name="GND_NAME" Type="varchar" Nullable="false" MaxLength="25" />
         </EntityType>
+        <EntityType Name="TG_INTEREST_POINT">
+          <Key>
+            <PropertyRef Name="POI_ID" />
+          </Key>
+          <Property Name="POI_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PTYP_ID" Type="int" Nullable="false" />
+          <Property Name="POI_IMAGE_PATH" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="POI_LATITUDE" Type="float" Nullable="false" />
+          <Property Name="POI_LONGITUDE" Type="float" Nullable="false" />
+          <Property Name="POI_ALTITUDE" Type="float" Nullable="false" />
+          <Property Name="POI_ADDRESS" Type="varchar" MaxLength="500" />
+          <Property Name="CITY_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TG_LANGUAGE">
+          <Key>
+            <PropertyRef Name="LNG_ID" />
+          </Key>
+          <Property Name="LNG_ID" Type="int" Nullable="false" />
+          <Property Name="LNG_NAME" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="LNG_ISOCODE" Type="varchar" Nullable="false" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="TG_POI_DESCRIPTION">
+          <Key>
+            <PropertyRef Name="POI_ID" />
+            <PropertyRef Name="LNG_ID" />
+          </Key>
+          <Property Name="POI_ID" Type="int" Nullable="false" />
+          <Property Name="LNG_ID" Type="int" Nullable="false" />
+          <Property Name="POID_NAME" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="POID_DESCRIPTION" Type="nvarchar" Nullable="false" MaxLength="1500" />
+        </EntityType>
+        <EntityType Name="TG_POI_TYPE">
+          <Key>
+            <PropertyRef Name="PTYP_ID" />
+          </Key>
+          <Property Name="PTYP_ID" Type="int" Nullable="false" />
+          <Property Name="PTYP_NAME" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TG_POI_USER_DATA">
+          <Key>
+            <PropertyRef Name="USR_ID" />
+            <PropertyRef Name="POI_ID" />
+          </Key>
+          <Property Name="USR_ID" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="POI_ID" Type="int" Nullable="false" />
+          <Property Name="UDAT_RATING" Type="float" />
+          <Property Name="UDAT_FAVORITE" Type="bit" Nullable="false" />
+          <Property Name="UDAT_VISITED" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="TG_ROLE">
           <Key>
             <PropertyRef Name="ROL_ID" />
           </Key>
           <Property Name="ROL_ID" Type="smallint" Nullable="false" />
           <Property Name="ROL_NAME" Type="varchar" Nullable="false" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="TG_STATE">
+          <Key>
+            <PropertyRef Name="STE_ID" />
+          </Key>
+          <Property Name="STE_ID" Type="int" Nullable="false" />
+          <Property Name="CTR_ID" Type="int" />
+          <Property Name="STE_NAME" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="TG_TEMPORAL_RECOVERY">
           <Key>
@@ -73,6 +202,114 @@
           <Property Name="USR_EMAIL" Type="varchar" MaxLength="250" />
           <Property Name="USR_IMAGE" Type="varchar" MaxLength="1024" />
         </EntityType>
+        <Association Name="FK_TG_CITY_STATE_CIT_TG_STATE">
+          <End Role="TG_STATE" Type="ToguisModel.Store.TG_STATE" Multiplicity="0..1" />
+          <End Role="TG_CITY" Type="ToguisModel.Store.TG_CITY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_STATE">
+              <PropertyRef Name="STE_ID" />
+            </Principal>
+            <Dependent Role="TG_CITY">
+              <PropertyRef Name="STE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_COMME_USER_COMM_TG_USER">
+          <End Role="TG_USER" Type="ToguisModel.Store.TG_USER" Multiplicity="1" />
+          <End Role="TG_COMMENTS" Type="ToguisModel.Store.TG_COMMENTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_USER">
+              <PropertyRef Name="USR_ID" />
+            </Principal>
+            <Dependent Role="TG_COMMENTS">
+              <PropertyRef Name="USR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_INTER_CITY_INTE_TG_CITY">
+          <End Role="TG_CITY" Type="ToguisModel.Store.TG_CITY" Multiplicity="1" />
+          <End Role="TG_INTEREST_POINT" Type="ToguisModel.Store.TG_INTEREST_POINT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_CITY">
+              <PropertyRef Name="CITY_ID" />
+            </Principal>
+            <Dependent Role="TG_INTEREST_POINT">
+              <PropertyRef Name="CITY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_INTER_POI_TYPE__TG_POI_T">
+          <End Role="TG_POI_TYPE" Type="ToguisModel.Store.TG_POI_TYPE" Multiplicity="1" />
+          <End Role="TG_INTEREST_POINT" Type="ToguisModel.Store.TG_INTEREST_POINT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_POI_TYPE">
+              <PropertyRef Name="PTYP_ID" />
+            </Principal>
+            <Dependent Role="TG_INTEREST_POINT">
+              <PropertyRef Name="PTYP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_POI_D_LANGUAGE__TG_LANGU">
+          <End Role="TG_LANGUAGE" Type="ToguisModel.Store.TG_LANGUAGE" Multiplicity="1" />
+          <End Role="TG_POI_DESCRIPTION" Type="ToguisModel.Store.TG_POI_DESCRIPTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_LANGUAGE">
+              <PropertyRef Name="LNG_ID" />
+            </Principal>
+            <Dependent Role="TG_POI_DESCRIPTION">
+              <PropertyRef Name="LNG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_POI_D_POINT_INT_TG_INTER">
+          <End Role="TG_INTEREST_POINT" Type="ToguisModel.Store.TG_INTEREST_POINT" Multiplicity="1" />
+          <End Role="TG_POI_DESCRIPTION" Type="ToguisModel.Store.TG_POI_DESCRIPTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_INTEREST_POINT">
+              <PropertyRef Name="POI_ID" />
+            </Principal>
+            <Dependent Role="TG_POI_DESCRIPTION">
+              <PropertyRef Name="POI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_POI_U_INTEREST__TG_INTER">
+          <End Role="TG_INTEREST_POINT" Type="ToguisModel.Store.TG_INTEREST_POINT" Multiplicity="1" />
+          <End Role="TG_POI_USER_DATA" Type="ToguisModel.Store.TG_POI_USER_DATA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_INTEREST_POINT">
+              <PropertyRef Name="POI_ID" />
+            </Principal>
+            <Dependent Role="TG_POI_USER_DATA">
+              <PropertyRef Name="POI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_POI_U_USER_POI__TG_USER">
+          <End Role="TG_USER" Type="ToguisModel.Store.TG_USER" Multiplicity="1" />
+          <End Role="TG_POI_USER_DATA" Type="ToguisModel.Store.TG_POI_USER_DATA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_USER">
+              <PropertyRef Name="USR_ID" />
+            </Principal>
+            <Dependent Role="TG_POI_USER_DATA">
+              <PropertyRef Name="USR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_STATE_COUNTRY_S_TG_COUNT">
+          <End Role="TG_COUNTRY" Type="ToguisModel.Store.TG_COUNTRY" Multiplicity="0..1" />
+          <End Role="TG_STATE" Type="ToguisModel.Store.TG_STATE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_COUNTRY">
+              <PropertyRef Name="CTR_ID" />
+            </Principal>
+            <Dependent Role="TG_STATE">
+              <PropertyRef Name="CTR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TG_TEMPO_USER_TEMP_TG_USER">
           <End Role="TG_USER" Type="ToguisModel.Store.TG_USER" Multiplicity="1" />
           <End Role="TG_TEMPORAL_RECOVERY" Type="ToguisModel.Store.TG_TEMPORAL_RECOVERY" Multiplicity="*" />
@@ -147,6 +384,51 @@
             <End Role="TG_USER" EntitySet="TG_USER" />
             <End Role="TG_TEMPORAL_RECOVERY" EntitySet="TG_TEMPORAL_RECOVERY" />
           </AssociationSet>
+          <EntitySet Name="TG_INTEREST_POINT" EntityType="ToguisModel.TG_INTEREST_POINT" />
+          <EntitySet Name="TG_LANGUAGE" EntityType="ToguisModel.TG_LANGUAGE" />
+          <EntitySet Name="TG_POI_DESCRIPTION" EntityType="ToguisModel.TG_POI_DESCRIPTION" />
+          <EntitySet Name="TG_POI_TYPE" EntityType="ToguisModel.TG_POI_TYPE" />
+          <EntitySet Name="TG_POI_USER_DATA" EntityType="ToguisModel.TG_POI_USER_DATA" />
+          <AssociationSet Name="FK_TG_INTER_POI_TYPE__TG_POI_T" Association="ToguisModel.FK_TG_INTER_POI_TYPE__TG_POI_T">
+            <End Role="TG_POI_TYPE" EntitySet="TG_POI_TYPE" />
+            <End Role="TG_INTEREST_POINT" EntitySet="TG_INTEREST_POINT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_POI_D_POINT_INT_TG_INTER" Association="ToguisModel.FK_TG_POI_D_POINT_INT_TG_INTER">
+            <End Role="TG_INTEREST_POINT" EntitySet="TG_INTEREST_POINT" />
+            <End Role="TG_POI_DESCRIPTION" EntitySet="TG_POI_DESCRIPTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_POI_U_INTEREST__TG_INTER" Association="ToguisModel.FK_TG_POI_U_INTEREST__TG_INTER">
+            <End Role="TG_INTEREST_POINT" EntitySet="TG_INTEREST_POINT" />
+            <End Role="TG_POI_USER_DATA" EntitySet="TG_POI_USER_DATA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_POI_D_LANGUAGE__TG_LANGU" Association="ToguisModel.FK_TG_POI_D_LANGUAGE__TG_LANGU">
+            <End Role="TG_LANGUAGE" EntitySet="TG_LANGUAGE" />
+            <End Role="TG_POI_DESCRIPTION" EntitySet="TG_POI_DESCRIPTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_POI_U_USER_POI__TG_USER" Association="ToguisModel.FK_TG_POI_U_USER_POI__TG_USER">
+            <End Role="TG_USER" EntitySet="TG_USER" />
+            <End Role="TG_POI_USER_DATA" EntitySet="TG_POI_USER_DATA" />
+          </AssociationSet>
+          <EntitySet Name="TG_CITY" EntityType="ToguisModel.TG_CITY" />
+          <EntitySet Name="TG_COUNTRY" EntityType="ToguisModel.TG_COUNTRY" />
+          <EntitySet Name="TG_STATE" EntityType="ToguisModel.TG_STATE" />
+          <AssociationSet Name="FK_TG_CITY_STATE_CIT_TG_STATE" Association="ToguisModel.FK_TG_CITY_STATE_CIT_TG_STATE">
+            <End Role="TG_STATE" EntitySet="TG_STATE" />
+            <End Role="TG_CITY" EntitySet="TG_CITY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_INTER_CITY_INTE_TG_CITY" Association="ToguisModel.FK_TG_INTER_CITY_INTE_TG_CITY">
+            <End Role="TG_CITY" EntitySet="TG_CITY" />
+            <End Role="TG_INTEREST_POINT" EntitySet="TG_INTEREST_POINT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TG_STATE_COUNTRY_S_TG_COUNT" Association="ToguisModel.FK_TG_STATE_COUNTRY_S_TG_COUNT">
+            <End Role="TG_COUNTRY" EntitySet="TG_COUNTRY" />
+            <End Role="TG_STATE" EntitySet="TG_STATE" />
+          </AssociationSet>
+          <EntitySet Name="TG_COMMENTS" EntityType="ToguisModel.TG_COMMENTS" />
+          <AssociationSet Name="FK_TG_COMME_USER_COMM_TG_USER" Association="ToguisModel.FK_TG_COMME_USER_COMM_TG_USER">
+            <End Role="TG_USER" EntitySet="TG_USER" />
+            <End Role="TG_COMMENTS" EntitySet="TG_COMMENTS" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="TG_AUTHENTICATION_TYPE">
           <Key>
@@ -190,6 +472,8 @@
           <NavigationProperty Name="TG_ROLE" Relationship="ToguisModel.FK_TG_USER_ROLE_USER_TG_ROLE" FromRole="TG_USER" ToRole="TG_ROLE" />
           <Property Type="String" Name="USR_NAME" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TG_TEMPORAL_RECOVERY" Relationship="ToguisModel.FK_TG_TEMPO_USER_TEMP_TG_USER" FromRole="TG_USER" ToRole="TG_TEMPORAL_RECOVERY" />
+          <NavigationProperty Name="TG_POI_USER_DATA" Relationship="ToguisModel.FK_TG_POI_U_USER_POI__TG_USER" FromRole="TG_USER" ToRole="TG_POI_USER_DATA" />
+          <NavigationProperty Name="TG_COMMENTS" Relationship="ToguisModel.FK_TG_COMME_USER_COMM_TG_USER" FromRole="TG_USER" ToRole="TG_COMMENTS" />
         </EntityType>
         <Association Name="FK_TG_USER_AUTHENTIC_TG_AUTHE">
           <End Role="TG_AUTHENTICATION_TYPE" Type="ToguisModel.TG_AUTHENTICATION_TYPE" Multiplicity="1" />
@@ -249,6 +533,214 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TG_INTEREST_POINT">
+          <Key>
+            <PropertyRef Name="POI_ID" />
+          </Key>
+          <Property Type="Int32" Name="POI_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PTYP_ID" Nullable="false" />
+          <Property Type="String" Name="POI_IMAGE_PATH" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="POI_LATITUDE" Nullable="false" />
+          <Property Type="Double" Name="POI_LONGITUDE" Nullable="false" />
+          <Property Type="Double" Name="POI_ALTITUDE" Nullable="false" />
+          <Property Type="String" Name="POI_ADDRESS" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TG_POI_TYPE" Relationship="ToguisModel.FK_TG_INTER_POI_TYPE__TG_POI_T" FromRole="TG_INTEREST_POINT" ToRole="TG_POI_TYPE" />
+          <NavigationProperty Name="TG_POI_DESCRIPTION" Relationship="ToguisModel.FK_TG_POI_D_POINT_INT_TG_INTER" FromRole="TG_INTEREST_POINT" ToRole="TG_POI_DESCRIPTION" />
+          <NavigationProperty Name="TG_POI_USER_DATA" Relationship="ToguisModel.FK_TG_POI_U_INTEREST__TG_INTER" FromRole="TG_INTEREST_POINT" ToRole="TG_POI_USER_DATA" />
+          <Property Type="Int32" Name="CITY_ID" Nullable="false" />
+          <NavigationProperty Name="TG_CITY" Relationship="ToguisModel.FK_TG_INTER_CITY_INTE_TG_CITY" FromRole="TG_INTEREST_POINT" ToRole="TG_CITY" />
+        </EntityType>
+        <EntityType Name="TG_LANGUAGE">
+          <Key>
+            <PropertyRef Name="LNG_ID" />
+          </Key>
+          <Property Type="Int32" Name="LNG_ID" Nullable="false" />
+          <Property Type="String" Name="LNG_NAME" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LNG_ISOCODE" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TG_POI_DESCRIPTION" Relationship="ToguisModel.FK_TG_POI_D_LANGUAGE__TG_LANGU" FromRole="TG_LANGUAGE" ToRole="TG_POI_DESCRIPTION" />
+        </EntityType>
+        <EntityType Name="TG_POI_DESCRIPTION">
+          <Key>
+            <PropertyRef Name="POI_ID" />
+            <PropertyRef Name="LNG_ID" />
+          </Key>
+          <Property Type="Int32" Name="POI_ID" Nullable="false" />
+          <Property Type="Int32" Name="LNG_ID" Nullable="false" />
+          <Property Type="String" Name="POID_NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="POID_DESCRIPTION" Nullable="false" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TG_INTEREST_POINT" Relationship="ToguisModel.FK_TG_POI_D_POINT_INT_TG_INTER" FromRole="TG_POI_DESCRIPTION" ToRole="TG_INTEREST_POINT" />
+          <NavigationProperty Name="TG_LANGUAGE" Relationship="ToguisModel.FK_TG_POI_D_LANGUAGE__TG_LANGU" FromRole="TG_POI_DESCRIPTION" ToRole="TG_LANGUAGE" />
+        </EntityType>
+        <EntityType Name="TG_POI_TYPE">
+          <Key>
+            <PropertyRef Name="PTYP_ID" />
+          </Key>
+          <Property Type="Int32" Name="PTYP_ID" Nullable="false" />
+          <Property Type="String" Name="PTYP_NAME" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TG_INTEREST_POINT" Relationship="ToguisModel.FK_TG_INTER_POI_TYPE__TG_POI_T" FromRole="TG_POI_TYPE" ToRole="TG_INTEREST_POINT" />
+        </EntityType>
+        <EntityType Name="TG_POI_USER_DATA">
+          <Key>
+            <PropertyRef Name="USR_ID" />
+            <PropertyRef Name="POI_ID" />
+          </Key>
+          <Property Type="String" Name="USR_ID" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="POI_ID" Nullable="false" />
+          <Property Type="Double" Name="UDAT_RATING" />
+          <Property Type="Boolean" Name="UDAT_FAVORITE" Nullable="false" />
+          <Property Type="Boolean" Name="UDAT_VISITED" Nullable="false" />
+          <NavigationProperty Name="TG_INTEREST_POINT" Relationship="ToguisModel.FK_TG_POI_U_INTEREST__TG_INTER" FromRole="TG_POI_USER_DATA" ToRole="TG_INTEREST_POINT" />
+          <NavigationProperty Name="TG_USER" Relationship="ToguisModel.FK_TG_POI_U_USER_POI__TG_USER" FromRole="TG_POI_USER_DATA" ToRole="TG_USER" />
+        </EntityType>
+        <Association Name="FK_TG_INTER_POI_TYPE__TG_POI_T">
+          <End Type="ToguisModel.TG_POI_TYPE" Role="TG_POI_TYPE" Multiplicity="1" />
+          <End Type="ToguisModel.TG_INTEREST_POINT" Role="TG_INTEREST_POINT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_POI_TYPE">
+              <PropertyRef Name="PTYP_ID" />
+            </Principal>
+            <Dependent Role="TG_INTEREST_POINT">
+              <PropertyRef Name="PTYP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_POI_D_POINT_INT_TG_INTER">
+          <End Type="ToguisModel.TG_INTEREST_POINT" Role="TG_INTEREST_POINT" Multiplicity="1" />
+          <End Type="ToguisModel.TG_POI_DESCRIPTION" Role="TG_POI_DESCRIPTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_INTEREST_POINT">
+              <PropertyRef Name="POI_ID" />
+            </Principal>
+            <Dependent Role="TG_POI_DESCRIPTION">
+              <PropertyRef Name="POI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_POI_U_INTEREST__TG_INTER">
+          <End Type="ToguisModel.TG_INTEREST_POINT" Role="TG_INTEREST_POINT" Multiplicity="1" />
+          <End Type="ToguisModel.TG_POI_USER_DATA" Role="TG_POI_USER_DATA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_INTEREST_POINT">
+              <PropertyRef Name="POI_ID" />
+            </Principal>
+            <Dependent Role="TG_POI_USER_DATA">
+              <PropertyRef Name="POI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_POI_D_LANGUAGE__TG_LANGU">
+          <End Type="ToguisModel.TG_LANGUAGE" Role="TG_LANGUAGE" Multiplicity="1" />
+          <End Type="ToguisModel.TG_POI_DESCRIPTION" Role="TG_POI_DESCRIPTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_LANGUAGE">
+              <PropertyRef Name="LNG_ID" />
+            </Principal>
+            <Dependent Role="TG_POI_DESCRIPTION">
+              <PropertyRef Name="LNG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_POI_U_USER_POI__TG_USER">
+          <End Type="ToguisModel.TG_USER" Role="TG_USER" Multiplicity="1" />
+          <End Type="ToguisModel.TG_POI_USER_DATA" Role="TG_POI_USER_DATA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_USER">
+              <PropertyRef Name="USR_ID" />
+            </Principal>
+            <Dependent Role="TG_POI_USER_DATA">
+              <PropertyRef Name="USR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TG_CITY">
+          <Key>
+            <PropertyRef Name="CITY_ID" />
+          </Key>
+          <Property Type="Int32" Name="CITY_ID" Nullable="false" />
+          <Property Type="Int32" Name="STE_ID" />
+          <Property Type="String" Name="CITY_NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CITY_WOEID" Nullable="false" />
+          <NavigationProperty Name="TG_STATE" Relationship="ToguisModel.FK_TG_CITY_STATE_CIT_TG_STATE" FromRole="TG_CITY" ToRole="TG_STATE" />
+          <NavigationProperty Name="TG_INTEREST_POINT" Relationship="ToguisModel.FK_TG_INTER_CITY_INTE_TG_CITY" FromRole="TG_CITY" ToRole="TG_INTEREST_POINT" />
+        </EntityType>
+        <EntityType Name="TG_COUNTRY">
+          <Key>
+            <PropertyRef Name="CTR_ID" />
+          </Key>
+          <Property Type="Int32" Name="CTR_ID" Nullable="false" />
+          <Property Type="String" Name="CTR_NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CTR_ISO_CODE" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TG_STATE" Relationship="ToguisModel.FK_TG_STATE_COUNTRY_S_TG_COUNT" FromRole="TG_COUNTRY" ToRole="TG_STATE" />
+        </EntityType>
+        <EntityType Name="TG_STATE">
+          <Key>
+            <PropertyRef Name="STE_ID" />
+          </Key>
+          <Property Type="Int32" Name="STE_ID" Nullable="false" />
+          <Property Type="Int32" Name="CTR_ID" />
+          <Property Type="String" Name="STE_NAME" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TG_CITY" Relationship="ToguisModel.FK_TG_CITY_STATE_CIT_TG_STATE" FromRole="TG_STATE" ToRole="TG_CITY" />
+          <NavigationProperty Name="TG_COUNTRY" Relationship="ToguisModel.FK_TG_STATE_COUNTRY_S_TG_COUNT" FromRole="TG_STATE" ToRole="TG_COUNTRY" />
+        </EntityType>
+        <Association Name="FK_TG_CITY_STATE_CIT_TG_STATE">
+          <End Type="ToguisModel.TG_STATE" Role="TG_STATE" Multiplicity="0..1" />
+          <End Type="ToguisModel.TG_CITY" Role="TG_CITY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_STATE">
+              <PropertyRef Name="STE_ID" />
+            </Principal>
+            <Dependent Role="TG_CITY">
+              <PropertyRef Name="STE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_INTER_CITY_INTE_TG_CITY">
+          <End Type="ToguisModel.TG_CITY" Role="TG_CITY" Multiplicity="1" />
+          <End Type="ToguisModel.TG_INTEREST_POINT" Role="TG_INTEREST_POINT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_CITY">
+              <PropertyRef Name="CITY_ID" />
+            </Principal>
+            <Dependent Role="TG_INTEREST_POINT">
+              <PropertyRef Name="CITY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TG_STATE_COUNTRY_S_TG_COUNT">
+          <End Type="ToguisModel.TG_COUNTRY" Role="TG_COUNTRY" Multiplicity="0..1" />
+          <End Type="ToguisModel.TG_STATE" Role="TG_STATE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_COUNTRY">
+              <PropertyRef Name="CTR_ID" />
+            </Principal>
+            <Dependent Role="TG_STATE">
+              <PropertyRef Name="CTR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TG_COMMENTS">
+          <Key>
+            <PropertyRef Name="COM_ID" />
+          </Key>
+          <Property Type="Int32" Name="COM_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="USR_ID" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="COM_COMMENT" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="POI_ID" Nullable="false" />
+          <NavigationProperty Name="TG_USER" Relationship="ToguisModel.FK_TG_COMME_USER_COMM_TG_USER" FromRole="TG_COMMENTS" ToRole="TG_USER" />
+          <Property Type="DateTime" Name="COM_DATE" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_TG_COMME_USER_COMM_TG_USER">
+          <End Type="ToguisModel.TG_USER" Role="TG_USER" Multiplicity="1" />
+          <End Type="ToguisModel.TG_COMMENTS" Role="TG_COMMENTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TG_USER">
+              <PropertyRef Name="USR_ID" />
+            </Principal>
+            <Dependent Role="TG_COMMENTS">
+              <PropertyRef Name="USR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -302,6 +794,97 @@
                 <ScalarProperty Name="REC_GUID" ColumnName="REC_GUID" />
                 <ScalarProperty Name="USR_ID" ColumnName="USR_ID" />
                 <ScalarProperty Name="REC_ID" ColumnName="REC_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TG_INTEREST_POINT">
+            <EntityTypeMapping TypeName="ToguisModel.TG_INTEREST_POINT">
+              <MappingFragment StoreEntitySet="TG_INTEREST_POINT">
+                <ScalarProperty Name="CITY_ID" ColumnName="CITY_ID" />
+                <ScalarProperty Name="POI_ADDRESS" ColumnName="POI_ADDRESS" />
+                <ScalarProperty Name="POI_ALTITUDE" ColumnName="POI_ALTITUDE" />
+                <ScalarProperty Name="POI_LONGITUDE" ColumnName="POI_LONGITUDE" />
+                <ScalarProperty Name="POI_LATITUDE" ColumnName="POI_LATITUDE" />
+                <ScalarProperty Name="POI_IMAGE_PATH" ColumnName="POI_IMAGE_PATH" />
+                <ScalarProperty Name="PTYP_ID" ColumnName="PTYP_ID" />
+                <ScalarProperty Name="POI_ID" ColumnName="POI_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TG_LANGUAGE">
+            <EntityTypeMapping TypeName="ToguisModel.TG_LANGUAGE">
+              <MappingFragment StoreEntitySet="TG_LANGUAGE">
+                <ScalarProperty Name="LNG_ISOCODE" ColumnName="LNG_ISOCODE" />
+                <ScalarProperty Name="LNG_NAME" ColumnName="LNG_NAME" />
+                <ScalarProperty Name="LNG_ID" ColumnName="LNG_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TG_POI_DESCRIPTION">
+            <EntityTypeMapping TypeName="ToguisModel.TG_POI_DESCRIPTION">
+              <MappingFragment StoreEntitySet="TG_POI_DESCRIPTION">
+                <ScalarProperty Name="POID_DESCRIPTION" ColumnName="POID_DESCRIPTION" />
+                <ScalarProperty Name="POID_NAME" ColumnName="POID_NAME" />
+                <ScalarProperty Name="LNG_ID" ColumnName="LNG_ID" />
+                <ScalarProperty Name="POI_ID" ColumnName="POI_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TG_POI_TYPE">
+            <EntityTypeMapping TypeName="ToguisModel.TG_POI_TYPE">
+              <MappingFragment StoreEntitySet="TG_POI_TYPE">
+                <ScalarProperty Name="PTYP_NAME" ColumnName="PTYP_NAME" />
+                <ScalarProperty Name="PTYP_ID" ColumnName="PTYP_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TG_POI_USER_DATA">
+            <EntityTypeMapping TypeName="ToguisModel.TG_POI_USER_DATA">
+              <MappingFragment StoreEntitySet="TG_POI_USER_DATA">
+                <ScalarProperty Name="UDAT_VISITED" ColumnName="UDAT_VISITED" />
+                <ScalarProperty Name="UDAT_FAVORITE" ColumnName="UDAT_FAVORITE" />
+                <ScalarProperty Name="UDAT_RATING" ColumnName="UDAT_RATING" />
+                <ScalarProperty Name="POI_ID" ColumnName="POI_ID" />
+                <ScalarProperty Name="USR_ID" ColumnName="USR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TG_CITY">
+            <EntityTypeMapping TypeName="ToguisModel.TG_CITY">
+              <MappingFragment StoreEntitySet="TG_CITY">
+                <ScalarProperty Name="CITY_WOEID" ColumnName="CITY_WOEID" />
+                <ScalarProperty Name="CITY_NAME" ColumnName="CITY_NAME" />
+                <ScalarProperty Name="STE_ID" ColumnName="STE_ID" />
+                <ScalarProperty Name="CITY_ID" ColumnName="CITY_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TG_COUNTRY">
+            <EntityTypeMapping TypeName="ToguisModel.TG_COUNTRY">
+              <MappingFragment StoreEntitySet="TG_COUNTRY">
+                <ScalarProperty Name="CTR_ISO_CODE" ColumnName="CTR_ISO_CODE" />
+                <ScalarProperty Name="CTR_NAME" ColumnName="CTR_NAME" />
+                <ScalarProperty Name="CTR_ID" ColumnName="CTR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TG_STATE">
+            <EntityTypeMapping TypeName="ToguisModel.TG_STATE">
+              <MappingFragment StoreEntitySet="TG_STATE">
+                <ScalarProperty Name="STE_NAME" ColumnName="STE_NAME" />
+                <ScalarProperty Name="CTR_ID" ColumnName="CTR_ID" />
+                <ScalarProperty Name="STE_ID" ColumnName="STE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TG_COMMENTS">
+            <EntityTypeMapping TypeName="ToguisModel.TG_COMMENTS">
+              <MappingFragment StoreEntitySet="TG_COMMENTS">
+                <ScalarProperty Name="COM_DATE" ColumnName="COM_DATE" />
+                <ScalarProperty Name="POI_ID" ColumnName="POI_ID" />
+                <ScalarProperty Name="COM_COMMENT" ColumnName="COM_COMMENT" />
+                <ScalarProperty Name="USR_ID" ColumnName="USR_ID" />
+                <ScalarProperty Name="COM_ID" ColumnName="COM_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
