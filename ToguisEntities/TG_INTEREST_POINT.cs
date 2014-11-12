@@ -31,7 +31,7 @@ namespace ToguisModel
         public int CITY_ID { get; set; }
 
         [NotMapped]
-        public float RATING { get; set; }
+        public Nullable<double> RATING { get; set; }
 
         public virtual TG_POI_TYPE TG_POI_TYPE { get; set; }
         public virtual ICollection<TG_POI_DESCRIPTION> TG_POI_DESCRIPTION { get; set; }

@@ -5,6 +5,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ToguisController.Utilities;
 using ToguisModel;
 
 namespace ToguisController.Points
@@ -64,23 +65,54 @@ namespace ToguisController.Points
             return loResult;            
         }
 
-        public TG_INTEREST_POINT GetPoint(String login, int poiId, int language)
+        public List<TG_INTEREST_POINT> GetPoints(String login,
+                                                 int cityId,
+                                                 bool getMonument,
+                                                 bool getMuseum,
+                                                 bool getHotel,
+                                                 bool getRestaurant,
+                                                 bool getInterest,
+                                                 bool getBuilding,
+                                                 bool getTransport,
+                                                 bool getEvent,
+                                                 int language,
+                                                 double userLatitude,
+                                                 double userLongitude,
+                                                 double maxDistance
+                                          )
+        {
+            List<TG_INTEREST_POINT> loPoints = this.GetPoints(login, cityId, getMonument, getMonument, getHotel, getRestaurant, getInterest, getBuilding, getTransport, getEvent, language);
+            List<TG_INTEREST_POINT> loResult = new List<TG_INTEREST_POINT>();
+            foreach (var item in loPoints)
+            {
+                double pointDistanceToUser = HaversineUtility.GetDistance(userLatitude, userLongitude, item.POI_LATITUDE, item.POI_LONGITUDE);
+                if (pointDistanceToUser <= maxDistance)
+                {
+                    loResult.Add(item);
+                }
+            }
+            return loResult;
+        }
+
+        public TG_INTEREST_POINT GetPoint(String login, string poiId, string language)
         {
             TG_INTEREST_POINT loResult = null;
             using (ToguisEntities loContext = new ToguisEntities())
             {
                 try
                 {
+                    int liPoiId = int.Parse(poiId);
+                    int liLanguage = int.Parse(language);
                     loContext.Configuration.ProxyCreationEnabled = false;
                     loResult = (from item in loContext.TG_INTEREST_POINT
-                                where item.POI_ID == poiId 
+                                where item.POI_ID == liPoiId
                                 select item).FirstOrDefault();
                     
                     loContext.Entry(loResult).State = EntityState.Detached;
                     try
                     {
                         var loRating = (from item in loContext.TG_POI_USER_DATA
-                                        where item.POI_ID == poiId  &&
+                                        where item.POI_ID == liPoiId &&
                                               item.UDAT_RATING != null
                                         group item by item.POI_ID into d
                                         select new { SumItems = d.Sum(p => p.UDAT_RATING) / d.Count() }).FirstOrDefault();
@@ -95,7 +127,7 @@ namespace ToguisController.Points
                     List<TG_POI_USER_DATA> loUserData = loContext.TG_POI_USER_DATA.Where(p => p.USR_ID.Equals(login)).ToList<TG_POI_USER_DATA>();
                     loResult.TG_POI_USER_DATA = loUserData;
 
-                    List<TG_POI_DESCRIPTION> loDescription = loContext.TG_POI_DESCRIPTION.Where(p => p.LNG_ID == language).ToList<TG_POI_DESCRIPTION>();
+                    List<TG_POI_DESCRIPTION> loDescription = loContext.TG_POI_DESCRIPTION.Where(p => p.LNG_ID == liLanguage).ToList<TG_POI_DESCRIPTION>();
                     loResult.TG_POI_DESCRIPTION = loDescription;
                 }
                 catch (Exception ex)
@@ -106,15 +138,17 @@ namespace ToguisController.Points
 
         }
 
-        public List<TG_COMMENTS> GetComments(int poiId)
+        public List<TG_COMMENTS> GetComments(string poiId)
         {
             List<TG_COMMENTS> loResult = new List<TG_COMMENTS>();
             using (ToguisEntities loContext = new ToguisEntities())
             {
+                loContext.Configuration.ProxyCreationEnabled = false;
                 try
                 {
+                    int liPoiId = int.Parse(poiId);
                     loResult = (from item in loContext.TG_COMMENTS
-                                where item.POI_ID == poiId
+                                where item.POI_ID == liPoiId
                                 select item
                                ).ToList();
                 }
@@ -148,25 +182,48 @@ namespace ToguisController.Points
             return 0;
         }
 
-        public int SetRating(String login, int poiId, float rating)
+        public TG_COMMENTS GetComment(int commentId)
+        {
+           TG_COMMENTS loResult = null;
+           using (ToguisEntities loContext = new ToguisEntities())
+            {
+                loContext.Configuration.ProxyCreationEnabled = false;
+                try
+                {
+                    loResult = (from item in loContext.TG_COMMENTS
+                                where item.COM_ID == commentId
+                                select item).FirstOrDefault();
+                }
+
+                catch (Exception ex)
+                {
+                }
+            }
+           return loResult;
+        }
+
+        public int SetRating(String login, string poiId, string rating)
         {
             using (ToguisEntities loContext = new ToguisEntities())
             {
                 try
                 {
-                    TG_POI_USER_DATA loUserData = loContext.TG_POI_USER_DATA.Where(p => p.POI_ID == poiId && p.USR_ID.Equals(login)).FirstOrDefault();
+                    int liPoiId = int.Parse(poiId);
+                    float liRating = float.Parse(rating);
+
+                    TG_POI_USER_DATA loUserData = loContext.TG_POI_USER_DATA.Where(p => p.POI_ID == int.Parse(poiId) && p.USR_ID.Equals(login)).FirstOrDefault();
                     if (loUserData != null)
                     {
-                        loUserData.UDAT_RATING = rating;
+                        loUserData.UDAT_RATING = float.Parse(rating);
                     }
                     else
                     {
                         loUserData = new TG_POI_USER_DATA();
-                        loUserData.POI_ID = poiId;
+                        loUserData.POI_ID = liPoiId;
                         loUserData.USR_ID = login;
                         loUserData.UDAT_FAVORITE = false;
                         loUserData.UDAT_VISITED = false;
-                        loUserData.UDAT_RATING = rating;
+                        loUserData.UDAT_RATING = liRating;
                         loContext.TG_POI_USER_DATA.Add(loUserData);
                     }
                     
@@ -184,14 +241,16 @@ namespace ToguisController.Points
             return 0;      
         }
 
-        public float GetRating(String login, int poiId)
+        public float GetRating(String login, string poiId)
         {
             float lfResult = -1f;
             using (ToguisEntities loContext = new ToguisEntities())
             {
+                loContext.Configuration.ProxyCreationEnabled = false;
                 try
                 {
-                    TG_POI_USER_DATA loUserData = loContext.TG_POI_USER_DATA.Where(p => p.POI_ID == poiId && p.USR_ID.Equals(login)).FirstOrDefault();
+                    int liPoiId = int.Parse(poiId);
+                    TG_POI_USER_DATA loUserData = loContext.TG_POI_USER_DATA.Where(p => p.POI_ID == liPoiId && p.USR_ID.Equals(login)).FirstOrDefault();
                     lfResult = (float)loUserData.UDAT_RATING;
                 }
                 catch (Exception ex)
@@ -201,23 +260,25 @@ namespace ToguisController.Points
             return lfResult;   
         }
 
-        public int SetFavorite(String login, int poiId, bool value)
+        public int SetFavorite(String login, string poiId, string value)
         {
             using (ToguisEntities loContext = new ToguisEntities())
             {
                 try
                 {
-                    TG_POI_USER_DATA loUserData = loContext.TG_POI_USER_DATA.Where(p => p.POI_ID == poiId && p.USR_ID.Equals(login)).FirstOrDefault();
+                    int liPoiId = int.Parse(poiId);
+                    bool lboValue = bool.Parse(value);
+                    TG_POI_USER_DATA loUserData = loContext.TG_POI_USER_DATA.Where(p => p.POI_ID == liPoiId && p.USR_ID.Equals(login)).FirstOrDefault();
                     if (loUserData != null)
                     {
-                        loUserData.UDAT_FAVORITE = value;
+                        loUserData.UDAT_FAVORITE = bool.Parse(value);
                     }
                     else
                     {
                         loUserData = new TG_POI_USER_DATA();
-                        loUserData.POI_ID = poiId;
+                        loUserData.POI_ID = liPoiId;
                         loUserData.USR_ID = login;
-                        loUserData.UDAT_FAVORITE = value;
+                        loUserData.UDAT_FAVORITE = lboValue;
                         loUserData.UDAT_VISITED = false;
                         loUserData.UDAT_RATING = null;
                         loContext.TG_POI_USER_DATA.Add(loUserData);
@@ -237,24 +298,27 @@ namespace ToguisController.Points
             return 0;              
         }
 
-        public int SetVisited(String login, int poiId, bool value)
+        public int SetVisited(String login, string poiId, string value)
         {
             using (ToguisEntities loContext = new ToguisEntities())
             {
                 try
                 {
-                    TG_POI_USER_DATA loUserData = loContext.TG_POI_USER_DATA.Where(p => p.POI_ID == poiId && p.USR_ID.Equals(login)).FirstOrDefault();
+                    int liPoiId = int.Parse(poiId);
+                    bool lboValue = bool.Parse(value);
+                    TG_POI_USER_DATA loUserData = loContext.TG_POI_USER_DATA.Where(p => p.POI_ID == liPoiId && p.USR_ID.Equals(login)).FirstOrDefault();
                     if (loUserData != null)
                     {
-                        loUserData.UDAT_VISITED = value;
+                        loUserData.UDAT_VISITED = bool.Parse(value);
                     }
                     else
                     {
+                        
                         loUserData = new TG_POI_USER_DATA();
-                        loUserData.POI_ID = poiId;
+                        loUserData.POI_ID = liPoiId;
                         loUserData.USR_ID = login;
                         loUserData.UDAT_FAVORITE = false;
-                        loUserData.UDAT_VISITED = value;
+                        loUserData.UDAT_VISITED = lboValue;
                         loUserData.UDAT_RATING = null;
                         loContext.TG_POI_USER_DATA.Add(loUserData);
                     }

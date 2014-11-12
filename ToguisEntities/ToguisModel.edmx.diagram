@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="69b0534d423c4af181fbc4c2765ee481" Name="Diagrama1">
+      <Diagram DiagramId="69b0534d423c4af181fbc4c2765ee481" Name="Diagrama1" ZoomLevel="64">
         <EntityTypeShape EntityType="ToguisModel.TG_AUTHENTICATION_TYPE" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="ToguisModel.TG_GENDER" Width="1.5" PointX="0.5" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="ToguisModel.TG_ROLE" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
@@ -15,8 +15,8 @@
         <EntityTypeShape EntityType="ToguisModel.TG_TEMPORAL_RECOVERY" Width="1.5" PointX="8.375" PointY="7" />
         <AssociationConnector Association="ToguisModel.FK_TG_TEMPO_USER_TEMP_TG_USER" />
         <EntityTypeShape EntityType="ToguisModel.TG_INTEREST_POINT" Width="1.5" PointX="3.75" PointY="6" />
-        <EntityTypeShape EntityType="ToguisModel.TG_LANGUAGE" Width="1.5" PointX="10.492655378995769" PointY="21.2834996531175" />
-        <EntityTypeShape EntityType="ToguisModel.TG_POI_DESCRIPTION" Width="1.5" PointX="5.5784330040116012" PointY="29.614016874513595" />
+        <EntityTypeShape EntityType="ToguisModel.TG_LANGUAGE" Width="1.5" PointX="8.625" PointY="10.125" />
+        <EntityTypeShape EntityType="ToguisModel.TG_POI_DESCRIPTION" Width="1.5" PointX="5.375" PointY="13.125" />
         <EntityTypeShape EntityType="ToguisModel.TG_POI_TYPE" Width="1.5" PointX="11.649704363033969" PointY="5.9406929043776788" />
         <EntityTypeShape EntityType="ToguisModel.TG_POI_USER_DATA" Width="1.5" PointX="6.375" PointY="4.75" />
         <AssociationConnector Association="ToguisModel.FK_TG_INTER_POI_TYPE__TG_POI_T" />
@@ -25,7 +25,7 @@
         <AssociationConnector Association="ToguisModel.FK_TG_POI_D_LANGUAGE__TG_LANGU" />
         <AssociationConnector Association="ToguisModel.FK_TG_POI_U_USER_POI__TG_USER" />
         <EntityTypeShape EntityType="ToguisModel.TG_CITY" Width="1.5" PointX="9.40168942576353" PointY="4.7020149848898942" />
-        <EntityTypeShape EntityType="ToguisModel.TG_COUNTRY" Width="1.5" PointX="8.33491083995202" PointY="31.954789310672687" />
+        <EntityTypeShape EntityType="ToguisModel.TG_COUNTRY" Width="1.5" PointX="8.125" PointY="15.5" />
         <EntityTypeShape EntityType="ToguisModel.TG_STATE" Width="1.5" PointX="1.625" PointY="6" />
         <AssociationConnector Association="ToguisModel.FK_TG_CITY_STATE_CIT_TG_STATE" />
         <AssociationConnector Association="ToguisModel.FK_TG_INTER_CITY_INTE_TG_CITY" />

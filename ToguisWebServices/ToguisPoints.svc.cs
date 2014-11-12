@@ -18,41 +18,64 @@ namespace ToguisWebServices
             return loController.GetPoints(login, cityId, getMonument, getMuseum, getHotel, getRestaurant, getInterest, getBuilding, getTransport, getEvent, language);
         }
 
-        public ToguisModel.TG_INTEREST_POINT GetPoint(string login, int poiId, int language)
+        public List<ToguisModel.TG_INTEREST_POINT> GetPoints(string login, int cityId, bool getMonument, bool getMuseum, bool getHotel, bool getRestaurant, bool getInterest, bool getBuilding, bool getTransport, bool getEvent, int language, double userLatitude, double userLongitude, double maxDistance)
+        {
+            PointOfInterestController loController = new PointOfInterestController();
+            return loController.GetPoints(login, cityId, getMonument, getMuseum, getHotel, getRestaurant, getInterest, getBuilding, getTransport, getEvent, language, userLatitude, userLongitude, maxDistance);
+        }
+
+        public ToguisModel.TG_INTEREST_POINT GetPoint(string login, string poiId, string language)
         {
             PointOfInterestController loController = new PointOfInterestController();
             return loController.GetPoint(login, poiId, language);
         }
 
-
-        public List<ToguisModel.TG_COMMENTS> GetComments(int poiId)
+        public List<ToguisModel.TG_COMMENTS> GetComments(string poiId)
         {
-            throw new NotImplementedException();
+            PointOfInterestController loController = new PointOfInterestController();
+            return loController.GetComments(poiId);
+        }
+
+        public ToguisModel.TG_COMMENTS GetComment(int commentId)
+        {
+            PointOfInterestController loController = new PointOfInterestController();
+            return loController.GetComment(commentId);
         }
 
         public int SetComment(ToguisModel.TG_COMMENTS comment)
         {
-            throw new NotImplementedException();
+            PointOfInterestController loController = new PointOfInterestController();
+            return loController.SetComment(comment);
         }
 
-        public int SetRating(string login, int poiId, float rating)
+        public int SetRating(string login, string poiId, string rating)
         {
-            throw new NotImplementedException();
+            PointOfInterestController loController = new PointOfInterestController();
+            return loController.SetRating(login, poiId, rating);
         }
 
-        public int GetRating(string login, int poiId)
+        public float GetRating(string login, string poiId)
         {
-            throw new NotImplementedException();
+            PointOfInterestController loController = new PointOfInterestController();
+            return loController.GetRating(login, poiId);
         }
 
-        public int SetFavorite(string login, int poiId, bool value)
+        public int SetFavorite(string login, string poiId, string value)
         {
-            throw new NotImplementedException();
+            PointOfInterestController loController = new PointOfInterestController();
+            return SetFavorite(login, poiId, value);
         }
 
-        public int SetVisited(string login, int poiId, bool value)
+        public int SetVisited(string login, string poiId, string value)
         {
-            throw new NotImplementedException();
+            PointOfInterestController loController = new PointOfInterestController();
+            return SetVisited(login, poiId, value);
         }
+
+
+
+
+
+ 
     }
 }
