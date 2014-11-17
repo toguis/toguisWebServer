@@ -54,6 +54,7 @@
     <Compile Include="Points\PointOfInterestController.cs" />
     <Compile Include="Security\SecurityController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\ConvertImage.cs" />
     <Compile Include="Utilities\HaversineUtility.cs" />
   </ItemGroup>
   <ItemGroup>

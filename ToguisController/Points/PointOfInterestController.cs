@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using ToguisController.Utilities;
@@ -50,11 +52,12 @@ namespace ToguisController.Points
                     foreach (var item in loResult)
                     {
                         loContext.Entry(item).State = EntityState.Detached;
-                        List<TG_POI_USER_DATA> loUserData = loContext.TG_POI_USER_DATA.Where(p => p.USR_ID.Equals(login)).ToList<TG_POI_USER_DATA>();
+                        List<TG_POI_USER_DATA> loUserData = loContext.TG_POI_USER_DATA.Where(p => p.USR_ID.Equals(login) && p.POI_ID == item.POI_ID).ToList<TG_POI_USER_DATA>();
                         item.TG_POI_USER_DATA = loUserData;
 
-                        List<TG_POI_DESCRIPTION> loDescription = loContext.TG_POI_DESCRIPTION.Where(p => p.LNG_ID == language).ToList<TG_POI_DESCRIPTION>();
+                        List<TG_POI_DESCRIPTION> loDescription = loContext.TG_POI_DESCRIPTION.Where(p => p.LNG_ID == language && p.POI_ID == item.POI_ID).ToList<TG_POI_DESCRIPTION>();
                         item.TG_POI_DESCRIPTION = loDescription;
+                        item.RATING = 0;
                     }
                                      
                 }
@@ -65,7 +68,7 @@ namespace ToguisController.Points
             return loResult;            
         }
 
-        public List<TG_INTEREST_POINT> GetPoints(String login,
+        public List<TG_INTEREST_POINT> GetPointsWithDistance(String login,
                                                  int cityId,
                                                  bool getMonument,
                                                  bool getMuseum,
@@ -83,18 +86,26 @@ namespace ToguisController.Points
         {
             List<TG_INTEREST_POINT> loPoints = this.GetPoints(login, cityId, getMonument, getMonument, getHotel, getRestaurant, getInterest, getBuilding, getTransport, getEvent, language);
             List<TG_INTEREST_POINT> loResult = new List<TG_INTEREST_POINT>();
-            foreach (var item in loPoints)
+            if (maxDistance > 0)
             {
-                double pointDistanceToUser = HaversineUtility.GetDistance(userLatitude, userLongitude, item.POI_LATITUDE, item.POI_LONGITUDE);
-                if (pointDistanceToUser <= maxDistance)
+                foreach (var item in loPoints)
                 {
-                    loResult.Add(item);
+                    double pointDistanceToUser = HaversineUtility.GetDistance(userLatitude, userLongitude, item.POI_LATITUDE, item.POI_LONGITUDE);
+                    if (pointDistanceToUser <= maxDistance)
+                    {
+                        loResult.Add(item);
+                    }
                 }
             }
+            else
+            {
+                loResult = loPoints;
+            }
+
             return loResult;
         }
 
-        public TG_INTEREST_POINT GetPoint(String login, string poiId, string language)
+        public TG_INTEREST_POINT GetPoint(String login, string poiId, string language, string pPath)
         {
             TG_INTEREST_POINT loResult = null;
             using (ToguisEntities loContext = new ToguisEntities())
@@ -124,11 +135,14 @@ namespace ToguisController.Points
                     }
 
 
-                    List<TG_POI_USER_DATA> loUserData = loContext.TG_POI_USER_DATA.Where(p => p.USR_ID.Equals(login)).ToList<TG_POI_USER_DATA>();
+                    List<TG_POI_USER_DATA> loUserData = loContext.TG_POI_USER_DATA.Where(p => p.USR_ID.Equals(login) && p.POI_ID == loResult.POI_ID).ToList<TG_POI_USER_DATA>();
                     loResult.TG_POI_USER_DATA = loUserData;
 
-                    List<TG_POI_DESCRIPTION> loDescription = loContext.TG_POI_DESCRIPTION.Where(p => p.LNG_ID == liLanguage).ToList<TG_POI_DESCRIPTION>();
+                    List<TG_POI_DESCRIPTION> loDescription = loContext.TG_POI_DESCRIPTION.Where(p => p.LNG_ID == liLanguage && p.POI_ID == loResult.POI_ID).ToList<TG_POI_DESCRIPTION>();
                     loResult.TG_POI_DESCRIPTION = loDescription;
+
+                    String lsImageData = ConvertImage.ConvertImageToBase64(pPath + @"\App_Data\files\" + loResult.POI_IMAGE_PATH);
+                    loResult.POI_IMAGE_PATH = lsImageData;
                 }
                 catch (Exception ex)
                 {

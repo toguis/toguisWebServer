@@ -9,7 +9,6 @@ using ToguisModel;
 
 namespace ToguisWebServices
 {
-    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IToguisPoints" en el código y en el archivo de configuración a la vez.
     [ServiceContract]
     public interface IToguisPoints
     {
@@ -38,7 +37,7 @@ namespace ToguisWebServices
                                                  "&getinterest={getinterest}&getbuilding={getBuilding}&gettransport={getTransport}&getevent={getEvent}&language={language}" +
                                                  "&userlatitude={userLatitude}&userlongitude={userLongitude}&maxdistance={maxDistance}",
                 ResponseFormat = WebMessageFormat.Json)]
-        List<TG_INTEREST_POINT> GetPoints(String login,
+        List<TG_INTEREST_POINT> GetPointsWithDistance(String login,
                                             int cityId,
                                             bool getMonument,
                                             bool getMuseum,

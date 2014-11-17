@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Web;
 using ToguisController.Points;
 
 namespace ToguisWebServices
@@ -18,16 +19,18 @@ namespace ToguisWebServices
             return loController.GetPoints(login, cityId, getMonument, getMuseum, getHotel, getRestaurant, getInterest, getBuilding, getTransport, getEvent, language);
         }
 
-        public List<ToguisModel.TG_INTEREST_POINT> GetPoints(string login, int cityId, bool getMonument, bool getMuseum, bool getHotel, bool getRestaurant, bool getInterest, bool getBuilding, bool getTransport, bool getEvent, int language, double userLatitude, double userLongitude, double maxDistance)
+        public List<ToguisModel.TG_INTEREST_POINT> GetPointsWithDistance(string login, int cityId, bool getMonument, bool getMuseum, bool getHotel, bool getRestaurant, bool getInterest, bool getBuilding, bool getTransport, bool getEvent, int language, double userLatitude, double userLongitude, double maxDistance)
         {
             PointOfInterestController loController = new PointOfInterestController();
-            return loController.GetPoints(login, cityId, getMonument, getMuseum, getHotel, getRestaurant, getInterest, getBuilding, getTransport, getEvent, language, userLatitude, userLongitude, maxDistance);
+            return loController.GetPointsWithDistance(login, cityId, getMonument, getMuseum, getHotel, getRestaurant, getInterest, getBuilding, getTransport, getEvent, language, userLatitude, userLongitude, maxDistance);
         }
 
         public ToguisModel.TG_INTEREST_POINT GetPoint(string login, string poiId, string language)
         {
+            string lsAppPath = HttpContext.Current.Request.ApplicationPath;
+            string lsPhysicalPath = HttpContext.Current.Request.MapPath(lsAppPath);
             PointOfInterestController loController = new PointOfInterestController();
-            return loController.GetPoint(login, poiId, language);
+            return loController.GetPoint(login, poiId, language, lsPhysicalPath);
         }
 
         public List<ToguisModel.TG_COMMENTS> GetComments(string poiId)
