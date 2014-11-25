@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
-using System.Text;
 using ToguisModel;
 
 namespace ToguisWebServices
@@ -52,6 +49,28 @@ namespace ToguisWebServices
                                             double userLongitude,
                                             double maxDistance);
 
+        [OperationContract]
+        [WebGet(BodyStyle = WebMessageBodyStyle.Bare,
+                UriTemplate = "search_points?login={login}&cityid={cityId}" +
+                                                 "&getmonument={getMonument}&getmuseum={getMuseum}&gethotel={getHotel}&getrestaurant={getRestaurant}" +
+                                                 "&getinterest={getinterest}&getbuilding={getBuilding}&gettransport={getTransport}&getevent={getEvent}&language={language}" +
+                                                 "&userlatitude={userLatitude}&userlongitude={userLongitude}&maxdistance={maxDistance}&search={search}",
+                ResponseFormat = WebMessageFormat.Json)]
+        List<TG_INTEREST_POINT> SearchPoints(String login,
+                                            int cityId,
+                                            bool getMonument,
+                                            bool getMuseum,
+                                            bool getHotel,
+                                            bool getRestaurant,
+                                            bool getInterest,
+                                            bool getBuilding,
+                                            bool getTransport,
+                                            bool getEvent,
+                                            int language,
+                                            double userLatitude,
+                                            double userLongitude,
+                                            double maxDistance,
+                                            string search);
         [OperationContract]
         [WebGet(BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "get_point?login={login}&poiid={poiId}&language={language}", ResponseFormat = WebMessageFormat.Json)]
         TG_INTEREST_POINT GetPoint(String login, string poiId, string language);

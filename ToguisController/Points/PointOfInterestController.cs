@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ToguisController.Utilities;
 using ToguisModel;
+using System.Data.Linq.SqlClient;
 
 namespace ToguisController.Points
 {
@@ -84,7 +85,7 @@ namespace ToguisController.Points
                                                  double maxDistance
                                           )
         {
-            List<TG_INTEREST_POINT> loPoints = this.GetPoints(login, cityId, getMonument, getMonument, getHotel, getRestaurant, getInterest, getBuilding, getTransport, getEvent, language);
+            List<TG_INTEREST_POINT> loPoints = this.GetPoints(login, cityId, getMonument, getMuseum, getHotel, getRestaurant, getInterest, getBuilding, getTransport, getEvent, language);
             List<TG_INTEREST_POINT> loResult = new List<TG_INTEREST_POINT>();
             if (maxDistance > 0)
             {
@@ -102,6 +103,29 @@ namespace ToguisController.Points
                 loResult = loPoints;
             }
 
+            return loResult;
+        }
+
+        public List<TG_INTEREST_POINT> SearchPoints(String login,
+                                                 int cityId,
+                                                 bool getMonument,
+                                                 bool getMuseum,
+                                                 bool getHotel,
+                                                 bool getRestaurant,
+                                                 bool getInterest,
+                                                 bool getBuilding,
+                                                 bool getTransport,
+                                                 bool getEvent,
+                                                 int language,
+                                                 double userLatitude,
+                                                 double userLongitude,
+                                                 double maxDistance,
+                                                 string search)
+        {
+            List<TG_INTEREST_POINT> loPoints = GetPointsWithDistance(login, cityId, getMonument, getMuseum, getHotel, getRestaurant, getInterest, getBuilding, getTransport, getEvent, language, userLatitude, userLongitude, maxDistance);
+            List<TG_INTEREST_POINT> loResult = (from item in loPoints
+                                                where item.TG_POI_DESCRIPTION.FirstOrDefault().POID_NAME.Contains( search.Trim())
+                                                select item).ToList();
             return loResult;
         }
 

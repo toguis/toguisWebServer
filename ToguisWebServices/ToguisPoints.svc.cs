@@ -25,6 +25,12 @@ namespace ToguisWebServices
             return loController.GetPointsWithDistance(login, cityId, getMonument, getMuseum, getHotel, getRestaurant, getInterest, getBuilding, getTransport, getEvent, language, userLatitude, userLongitude, maxDistance);
         }
 
+        public List<ToguisModel.TG_INTEREST_POINT> SearchPoints(string login, int cityId, bool getMonument, bool getMuseum, bool getHotel, bool getRestaurant, bool getInterest, bool getBuilding, bool getTransport, bool getEvent, int language, double userLatitude, double userLongitude, double maxDistance, string search)
+        {
+            PointOfInterestController loController = new PointOfInterestController();
+            return loController.SearchPoints(login, cityId, getMonument, getMuseum, getHotel, getRestaurant, getInterest, getBuilding, getTransport, getEvent, language, userLatitude, userLongitude, maxDistance, search);
+        }
+
         public ToguisModel.TG_INTEREST_POINT GetPoint(string login, string poiId, string language)
         {
             string lsAppPath = HttpContext.Current.Request.ApplicationPath;
