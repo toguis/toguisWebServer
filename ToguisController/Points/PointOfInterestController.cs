@@ -125,7 +125,7 @@ namespace ToguisController.Points
         {
             List<TG_INTEREST_POINT> loPoints = GetPointsWithDistance(login, cityId, getMonument, getMuseum, getHotel, getRestaurant, getInterest, getBuilding, getTransport, getEvent, language, userLatitude, userLongitude, maxDistance);
             List<TG_INTEREST_POINT> loResult = (from item in loPoints
-                                                where item.TG_POI_DESCRIPTION.FirstOrDefault().POID_NAME.Contains( search.Trim())
+                                                where item.TG_POI_DESCRIPTION.FirstOrDefault().POID_NAME.ToLower().Contains(search.Trim().ToLower())
                                                 select item).ToList();
             return loResult;
         }
@@ -188,8 +188,18 @@ namespace ToguisController.Points
                     int liPoiId = int.Parse(poiId);
                     loResult = (from item in loContext.TG_COMMENTS
                                 where item.POI_ID == liPoiId
+                                orderby item.COM_DATE ascending
                                 select item
                                ).ToList();
+
+                    foreach (var item in loResult)
+                    {
+                        loContext.Entry(item).State = EntityState.Detached;
+                        TG_USER loUser = (from user in loContext.TG_USER
+                                          where user.USR_ID.Equals(item.USR_ID)
+                                          select user).FirstOrDefault();
+                        item.TG_USER = loUser;
+                    }
                 }
                 catch (Exception ex) 
                 {
@@ -248,14 +258,14 @@ namespace ToguisController.Points
                 try
                 {
                     int liPoiId = int.Parse(poiId);
-                    float liRating = float.Parse(rating);
+                    char loSeparator = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+                    String lsRating = rating.Contains(".") ? rating.Replace('.', loSeparator) : rating.Replace(',', loSeparator);
+                    float lfRating = float.Parse(lsRating);
 
                     TG_POI_USER_DATA loUserData = loContext.TG_POI_USER_DATA.Where(p => p.POI_ID == liPoiId && p.USR_ID.Equals(login)).FirstOrDefault();
                     if (loUserData != null)
                     {
-                        char loSeparator = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
-                        String lsRating = rating.Contains(".") ? rating.Replace('.', loSeparator) : rating.Replace(',', loSeparator);
-                        loUserData.UDAT_RATING = float.Parse(lsRating);
+                        loUserData.UDAT_RATING = lfRating;
                     }
                     else
                     {
@@ -264,7 +274,7 @@ namespace ToguisController.Points
                         loUserData.USR_ID = login;
                         loUserData.UDAT_FAVORITE = false;
                         loUserData.UDAT_VISITED = false;
-                        loUserData.UDAT_RATING = liRating;
+                        loUserData.UDAT_RATING = lfRating;
                         loContext.TG_POI_USER_DATA.Add(loUserData);
                     }
                     
@@ -321,7 +331,7 @@ namespace ToguisController.Points
                         loUserData.USR_ID = login;
                         loUserData.UDAT_FAVORITE = lboValue;
                         loUserData.UDAT_VISITED = false;
-                        loUserData.UDAT_RATING = null;
+                        loUserData.UDAT_RATING = 0.0;
                         loContext.TG_POI_USER_DATA.Add(loUserData);
                     }
 
@@ -360,7 +370,7 @@ namespace ToguisController.Points
                         loUserData.USR_ID = login;
                         loUserData.UDAT_FAVORITE = false;
                         loUserData.UDAT_VISITED = lboValue;
-                        loUserData.UDAT_RATING = null;
+                        loUserData.UDAT_RATING = 0.0;
                         loContext.TG_POI_USER_DATA.Add(loUserData);
                     }
 
