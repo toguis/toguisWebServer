@@ -72,13 +72,13 @@ namespace ToguisWebServices
         public int SetFavorite(string login, string poiId, string value)
         {
             PointOfInterestController loController = new PointOfInterestController();
-            return SetFavorite(login, poiId, value);
+            return loController.SetFavorite(login, poiId, value);
         }
 
         public int SetVisited(string login, string poiId, string value)
         {
             PointOfInterestController loController = new PointOfInterestController();
-            return SetVisited(login, poiId, value);
+            return loController.SetVisited(login, poiId, value);
         }
 
 

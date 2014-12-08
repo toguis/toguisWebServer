@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using ToguisController.Utilities;
 using ToguisModel;
 using System.Data.Linq.SqlClient;
+using System.Globalization;
 
 namespace ToguisController.Points
 {
@@ -249,10 +250,12 @@ namespace ToguisController.Points
                     int liPoiId = int.Parse(poiId);
                     float liRating = float.Parse(rating);
 
-                    TG_POI_USER_DATA loUserData = loContext.TG_POI_USER_DATA.Where(p => p.POI_ID == int.Parse(poiId) && p.USR_ID.Equals(login)).FirstOrDefault();
+                    TG_POI_USER_DATA loUserData = loContext.TG_POI_USER_DATA.Where(p => p.POI_ID == liPoiId && p.USR_ID.Equals(login)).FirstOrDefault();
                     if (loUserData != null)
                     {
-                        loUserData.UDAT_RATING = float.Parse(rating);
+                        char loSeparator = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+                        String lsRating = rating.Contains(".") ? rating.Replace('.', loSeparator) : rating.Replace(',', loSeparator);
+                        loUserData.UDAT_RATING = float.Parse(lsRating);
                     }
                     else
                     {
@@ -309,7 +312,7 @@ namespace ToguisController.Points
                     TG_POI_USER_DATA loUserData = loContext.TG_POI_USER_DATA.Where(p => p.POI_ID == liPoiId && p.USR_ID.Equals(login)).FirstOrDefault();
                     if (loUserData != null)
                     {
-                        loUserData.UDAT_FAVORITE = bool.Parse(value);
+                        loUserData.UDAT_FAVORITE = Convert.ToBoolean(value);
                     }
                     else
                     {
@@ -347,7 +350,7 @@ namespace ToguisController.Points
                     TG_POI_USER_DATA loUserData = loContext.TG_POI_USER_DATA.Where(p => p.POI_ID == liPoiId && p.USR_ID.Equals(login)).FirstOrDefault();
                     if (loUserData != null)
                     {
-                        loUserData.UDAT_VISITED = bool.Parse(value);
+                        loUserData.UDAT_VISITED = Convert.ToBoolean(value);
                     }
                     else
                     {
