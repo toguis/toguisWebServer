@@ -81,10 +81,16 @@ namespace ToguisWebServices
             return loController.SetVisited(login, poiId, value);
         }
 
+        public List<ToguisModel.TG_LANGUAGE> GetLanguages()
+        {
+            PointOfInterestController loController = new PointOfInterestController();
+            return loController.GetLanguages();
+        }
 
-
-
-
- 
+        public List<ToguisModel.TG_CITY> GetCities()
+        {
+            PointOfInterestController loController = new PointOfInterestController();
+            return loController.GetCities();
+        }
     }
 }

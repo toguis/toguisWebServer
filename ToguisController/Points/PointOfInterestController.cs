@@ -388,5 +388,44 @@ namespace ToguisController.Points
             return 0;
         }
 
+
+        public List<TG_LANGUAGE> GetLanguages()
+        {
+            List<TG_LANGUAGE> loResult = new List<TG_LANGUAGE>();
+            using (ToguisEntities loContext = new ToguisEntities())
+            {
+                loContext.Configuration.ProxyCreationEnabled = false;
+                try
+                {
+                    loResult = (from item in loContext.TG_LANGUAGE
+                               select item).ToList();
+                }
+
+                catch (Exception ex)
+                {
+                }
+            }
+            return loResult;
+        }
+
+        public List<TG_CITY> GetCities()
+        {
+            List<TG_CITY> loResult = new List<TG_CITY>();
+            using (ToguisEntities loContext = new ToguisEntities())
+            {
+                loContext.Configuration.ProxyCreationEnabled = false;
+                try
+                {
+                    loResult = (from item in loContext.TG_CITY
+                                select item).ToList();
+                }
+
+                catch (Exception ex)
+                {
+                }
+            }
+            return loResult;
+        }
+
     }
 }

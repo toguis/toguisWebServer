@@ -102,5 +102,13 @@ namespace ToguisWebServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "set_visited/{login}/{poiId}/{value}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "POST")]
         int SetVisited(String login, string poiId, string value);
+
+        [OperationContract]
+        [WebGet(BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "get_languages", ResponseFormat = WebMessageFormat.Json)]
+        List<TG_LANGUAGE> GetLanguages();
+
+        [OperationContract]
+        [WebGet(BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "get_cities", ResponseFormat = WebMessageFormat.Json)]
+        List<TG_CITY> GetCities();
     }
 }
