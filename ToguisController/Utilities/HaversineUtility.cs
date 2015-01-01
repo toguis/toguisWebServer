@@ -1,4 +1,12 @@
-﻿using System;
+﻿/***********************************************************************************************
+ * Project: Tourist Guide System Toguis Web Services
+ * University: UNIAJC
+ * Authors: Julieth Candia and Carlos Morante
+ * Year: 2014 - 2015
+ * Version: 1.0 
+ * License: GPL V2
+ ***********************************************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

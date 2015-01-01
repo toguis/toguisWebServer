@@ -1,4 +1,12 @@
-﻿using System;
+﻿/***********************************************************************************************
+ * Project: Tourist Guide System Toguis Web Services
+ * University: UNIAJC
+ * Authors: Julieth Candia and Carlos Morante
+ * Year: 2014 - 2015
+ * Version: 1.0 
+ * License: GPL V2
+ ***********************************************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core;
 using System.Data.Entity.Infrastructure;
@@ -37,10 +45,7 @@ namespace ToguisWebServices
         public int RecoverUser(String email)
         {
             SecurityController loController = new SecurityController();
-            return loController.RecoverUser(email);     
+            return loController.RecoverUser(email);
         }
-
-
-
     }
 }
