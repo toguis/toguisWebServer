@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="9b784021-a68e-468d-8a12-9381efffcbb5"
+  name="Security"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="0771c1d8-042e-4fd8-b98d-865dcadf3e0e"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DToguisController.Security"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="4522fb0a-53fb-41f5-ac4c-0e5aa023738c"
+        name="SecurityController"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="df0f0999-578d-4b73-8187-74a4b64f4cbd"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisController%2Fbin%2FDebug%2FToguisController.dll Namespace%3DToguisController.Security Type%3DSecurityController"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="6466fd78-db4d-42e5-867e-537bb6879551"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e7039e60-2682-4b4c-a852-dbe93644290c">
+                <propertyInstance
+                  Id="3022c172-f2d5-4e0e-b7cb-7d0effdeb89d"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bc481df5-d407-40c6-9d98-edbaaaaf100a">
+                <propertyInstance
+                  Id="a6868cfd-eace-4cca-a243-dd398d32380b"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4e1cef49-c05e-470b-b152-35e03db6a0c7">
+                <propertyInstance
+                  Id="688c1e0c-9ed8-49e5-8dbe-eb586107e534"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="06ed560e-da1e-4c21-bf93-8529b070de9a">
+                <propertyInstance
+                  Id="6a3706f2-e0dc-4838-a57f-b544a2da3824"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2f6808eb-3c96-417c-aac6-405d254fdd33">
+                <propertyInstance
+                  Id="dd0be83b-5cac-4291-9563-188191c00d95"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="4976c4b1-652f-46a7-901d-a14c15484074"
+            name="GetUser"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="f49ecebe-8afd-407a-890c-05becae08377"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisController%2Fbin%2FDebug%2FToguisController.dll Namespace%3DToguisController.Security Type%3DSecurityController Member%3D(Name%3DGetUser OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8c254ba9-42f5-45e9-a33f-6cb197d2b2a8"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bfb19d1d-02f8-4ee1-827f-66d60571516a">
+                    <propertyInstance
+                      Id="5fd62a66-7e77-41d8-b284-6b1250cfe786"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dc8dda17-5ab3-4572-ac91-c7114fecc44c">
+                    <propertyInstance
+                      Id="0b3ba4ee-9ba9-4f3a-b2bd-21d9a6ec32b5"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9add4055-5c4d-4486-a874-65924f4c5197">
+                    <propertyInstance
+                      Id="5255336b-5624-4d97-bc70-255eb431e07e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0c0a8522-24a0-4c3f-83b4-40d55039ffd7">
+                    <propertyInstance
+                      Id="215b774e-4f72-4425-a520-62ddc5852066"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dff443e7-f1cc-4461-b143-3685e8207553">
+                    <propertyInstance
+                      Id="7a814763-c3e7-4aae-b46b-5bc6f8cb4bb8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0797fea8-bdc0-4f0a-8049-17ab4dde552e">
+                    <propertyInstance
+                      Id="11ca5bea-0a1c-4f39-a928-1934ba43b078"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="26a96d85-c099-412a-8155-9fccf6902e2a"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b5e5c7b6-936c-47ec-a475-f713ace5e433"
+                      LastKnownName="TG_USER"
+                      LastKnownLocation="Package2_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="be705f97-f291-4271-8102-aae86d9b46b1"
+                  name="login"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="4c04f8dd-567e-4e4c-9eb3-001df1009577"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisController%2Fbin%2FDebug%2FToguisController.dll Namespace%3DToguisController.Security Type%3DSecurityController Member%3D(Name%3DGetUser OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dlogin"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject2.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="fe1f94da-adcd-4032-b6da-bf761691ca5d"
+            name="CreateUser"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="bb3d4f8d-2ee9-4087-8941-77529b205e7f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisController%2Fbin%2FDebug%2FToguisController.dll Namespace%3DToguisController.Security Type%3DSecurityController Member%3D(Name%3DCreateUser OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisEntities%2Fbin%2FDebug%2FToguisEntities.dll Namespace%3DToguisModel Type%3DTG_USER)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="237fe541-ed64-4d34-b9f5-c020b922362d"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5fb8f594-aa4e-4448-8fee-f59b57e81995">
+                    <propertyInstance
+                      Id="946c7eb3-3389-4129-89c0-2f73fdfbda18"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dd408038-2a69-49ae-9b56-8d12c893caf7">
+                    <propertyInstance
+                      Id="de7ec2bb-5987-453f-8581-f5e1e65baa4f"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="95fe97b9-e783-4ab5-84ee-7896e8ebafb5">
+                    <propertyInstance
+                      Id="3373f60c-d040-4593-8c44-28e44cbb5fa2"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2dd810d4-5201-4065-a615-4f5666717fc1">
+                    <propertyInstance
+                      Id="066ef1d9-e331-4624-a18d-afefdcfa7ab5"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0d40efda-41f4-4774-8068-2b1d253a9881">
+                    <propertyInstance
+                      Id="3aaf5337-46a4-4649-b3ef-2a461132e93d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b9340d26-f695-43b4-a855-420eb050ff14">
+                    <propertyInstance
+                      Id="2cd906d6-da2d-4bf6-a076-8e48ed9c13a5"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ad3b466a-a945-402e-b834-63524bbf884f"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject2.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2b9f916e-ec74-4216-80a1-abeff45a5f52"
+                  name="user"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="b10398ce-ec88-48cd-9b62-5b19aba93735"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisController%2Fbin%2FDebug%2FToguisController.dll Namespace%3DToguisController.Security Type%3DSecurityController Member%3D(Name%3DCreateUser OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisEntities%2Fbin%2FDebug%2FToguisEntities.dll Namespace%3DToguisModel Type%3DTG_USER)]) ParameterIdentifier%3Duser"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b5e5c7b6-936c-47ec-a475-f713ace5e433"
+                      LastKnownName="TG_USER"
+                      LastKnownLocation="Package2_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ab545a7a-fb92-4416-a8de-40e4dfdee992"
+            name="UpdateUser"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="beb63cb7-985e-4dbd-9e52-775fe03ecb30"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisController%2Fbin%2FDebug%2FToguisController.dll Namespace%3DToguisController.Security Type%3DSecurityController Member%3D(Name%3DUpdateUser OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisEntities%2Fbin%2FDebug%2FToguisEntities.dll Namespace%3DToguisModel Type%3DTG_USER)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="28475ff7-1595-4561-92af-3e3980b60e11"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ddafe7db-892d-4376-9603-52006760326f">
+                    <propertyInstance
+                      Id="2400e0e8-c5ab-4c27-bb5f-4b17841917f1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ce568538-8242-46a4-bc54-5618001ca471">
+                    <propertyInstance
+                      Id="f151d794-aae1-4533-bcd0-eeab5f608d3e"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cfd5ff57-b48b-434a-8c8c-7433848d0375">
+                    <propertyInstance
+                      Id="da269bdc-e14b-4d38-aa10-0f88c525f2e3"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d366d5de-034f-46b8-8dfd-b148f70c2106">
+                    <propertyInstance
+                      Id="57d164e0-d706-45bc-acde-c742334e231d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="14ac2275-314b-4cf7-8a50-4a1872bba15f">
+                    <propertyInstance
+                      Id="a81046b8-ee9b-4f96-94ff-1038a2e96d2a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bc427d2d-56d9-4035-9545-eb3add443545">
+                    <propertyInstance
+                      Id="24fede90-2685-4b17-be9c-837735549f80"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e6f17616-030a-45c3-a136-65670cd4ea02"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject2.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="688f26b8-6131-475c-901b-9ca51014fbec"
+                  name="user"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="8958c19f-e7ba-4970-b476-f2732ea5f413"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisController%2Fbin%2FDebug%2FToguisController.dll Namespace%3DToguisController.Security Type%3DSecurityController Member%3D(Name%3DUpdateUser OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisEntities%2Fbin%2FDebug%2FToguisEntities.dll Namespace%3DToguisModel Type%3DTG_USER)]) ParameterIdentifier%3Duser"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b5e5c7b6-936c-47ec-a475-f713ace5e433"
+                      LastKnownName="TG_USER"
+                      LastKnownLocation="Package2_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f94cba86-2648-45ce-a988-c841980aa4ea"
+            name="RecoverUser"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="8d361536-59be-407b-a630-444c5d6b804f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisController%2Fbin%2FDebug%2FToguisController.dll Namespace%3DToguisController.Security Type%3DSecurityController Member%3D(Name%3DRecoverUser OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c54a1c8f-485a-4447-b03d-2c6dafea0ff6"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="178e6c11-6892-4ec0-9b64-4079622930fc">
+                    <propertyInstance
+                      Id="d4683946-ab86-4900-933c-ae831960a9d7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="92bbda23-ae2b-4b4c-8752-e7f622d5ba9b">
+                    <propertyInstance
+                      Id="04ab33ec-c6ac-4776-a9c2-223b795718f2"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2e5621f2-706d-403a-ab77-424e3259ac64">
+                    <propertyInstance
+                      Id="c2a2908c-aada-45f6-91df-cc1368fd92e2"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cf33f02b-f4cf-4c9b-a82f-6c7de10966d5">
+                    <propertyInstance
+                      Id="684f8824-09c5-4619-b583-688b1a2c7c3f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="54ca3e56-7cec-440d-beb9-dc31e4d6c916">
+                    <propertyInstance
+                      Id="e9d64bfb-48cb-46bf-87ed-3c1f246fd34e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4cbb675d-a4ed-46fe-8e3f-15c61fe3ba5b">
+                    <propertyInstance
+                      Id="3953ac68-b464-4c14-a36e-01fa8b2f938b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a2663c6b-9251-4496-95c4-477dfb1ef3a2"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject2.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="550d4dfc-9184-4f0b-ae8c-857a5693925e"
+                  name="email"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ed093619-98a8-4cb6-b54e-53a39b418506"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisController%2Fbin%2FDebug%2FToguisController.dll Namespace%3DToguisController.Security Type%3DSecurityController Member%3D(Name%3DRecoverUser OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Demail"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject2.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="374058f8-ce1c-4c9a-974d-26314ec483e1"
+            name="SecurityController"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="51d942fb-9759-4bc2-821e-26eb2814e24e"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisController%2Fbin%2FDebug%2FToguisController.dll Namespace%3DToguisController.Security Type%3DSecurityController Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d1df4090-968c-4ab5-b0e4-5f2befdc8ccc"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f864c722-eae9-4ec7-af8b-4c3baee1b547">
+                    <propertyInstance
+                      Id="f7ed0e5c-a80b-413a-b6a2-1b5f62642499"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a6164f53-b7fd-4423-8e17-9c5bba3a3e38">
+                    <propertyInstance
+                      Id="c1cd3b6f-229a-4563-85f1-ed67f5d9f02d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5091e6d1-768f-45d9-915d-62f539d258ac">
+                    <propertyInstance
+                      Id="11117f52-6c67-4c5c-a774-a02f0ccacb39"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="530c087a-6ac8-4a4b-8204-cc5225a13188">
+                    <propertyInstance
+                      Id="1e966130-8266-4b1f-82a0-5cff867ea827"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="35f524ca-9fa5-4261-8487-526e13d38530">
+                    <propertyInstance
+                      Id="739f0e3d-038f-4484-9f55-d8c9f3d4bb64"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5a0c0eda-20f7-4b39-a863-3f0e4214afc2">
+                    <propertyInstance
+                      Id="cf7b17a5-7d93-4e08-b669-373142351040"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

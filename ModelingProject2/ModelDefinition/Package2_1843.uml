@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="21fbb4d3-09da-43be-83d0-89ff8bed188e"
+  name="ToguisModel"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="e76dbee3-faa0-4b62-ba3c-260ea794b277"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DToguisModel"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="52810349-64d5-4609-92c3-957682ee00b9"
+        name="TG_COMMENTS"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="a4b59bb1-ca89-4dea-ab0a-ae87b52b85d9"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisEntities%2Fbin%2FDebug%2FToguisEntities.dll Namespace%3DToguisModel Type%3DTG_COMMENTS"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="eefa95a2-2f9f-4f05-a315-8943611af94c"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8865f22c-2da6-40dc-9f92-4cfa44f31359">
+                <propertyInstance
+                  Id="e044ed95-c4f0-47fd-b9fa-9a97022fe193"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="76c73264-3975-4173-9a77-0706fb0d3b66">
+                <propertyInstance
+                  Id="1d0c533f-73c6-4a7f-add1-d2befe9db508"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="58f2d631-38b3-4133-8170-5223db8cae25">
+                <propertyInstance
+                  Id="171753ef-a540-4485-a064-9d70ff22fe89"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="56663ba3-02d6-4fbd-a577-50059602e114">
+                <propertyInstance
+                  Id="172a87c2-495c-408d-ba74-42b9eebc32e7"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8affb942-64a4-45c7-8b89-b6774b2dac79">
+                <propertyInstance
+                  Id="f9a8e2ed-d6e7-48e4-90c8-bb65fb9c54df"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6cd109e6-aecd-42c1-8a99-9423154dbb3e"
+        name="TG_INTEREST_POINT"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="2c367ef1-6b98-48de-9b38-a60d20f0a7a2"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisEntities%2Fbin%2FDebug%2FToguisEntities.dll Namespace%3DToguisModel Type%3DTG_INTEREST_POINT"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="61a9ac00-b9fb-4586-b1be-9e1a8dcabd01"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="21c6b094-c8f1-469b-9924-a7cc6a6c17b5">
+                <propertyInstance
+                  Id="141ce42c-8035-4c73-ba26-6fe2a05b32ae"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="25193660-27a2-49b8-9742-5d3ffb959e9f">
+                <propertyInstance
+                  Id="b838943a-8239-4bdf-8e6a-2bc180557cd3"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f9775001-e230-49ca-a2c7-7f263ba3fcaa">
+                <propertyInstance
+                  Id="2bb69381-0217-48be-8a3c-bf01e9b5aa09"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9fd32b80-a310-4c13-a261-885c68b16ad7">
+                <propertyInstance
+                  Id="a7c993e0-e502-43a2-87f8-2e32557ddc5b"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="de45ec81-951b-42eb-993a-0e1c0de4c132">
+                <propertyInstance
+                  Id="76c10b91-896e-4e39-8058-31fbee057834"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="621c74f5-a5ae-4892-92b3-54de47101e1c"
+        name="TG_CITY"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="95022e38-1ff9-476c-8074-e480d03dcb07"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisEntities%2Fbin%2FDebug%2FToguisEntities.dll Namespace%3DToguisModel Type%3DTG_CITY"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="f63791c6-ad58-4161-8d82-d5bffbf92d6b"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0208a4cf-f256-4082-b301-910d4b8ef975">
+                <propertyInstance
+                  Id="28fc31c1-83be-4df0-891d-2b7cdddee36a"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e1595202-fa71-49a9-9063-b881b3335373">
+                <propertyInstance
+                  Id="d9191d6e-edd5-464d-a2ee-821da54f6603"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="62ddce6b-446b-4353-978d-1f41a4b339df">
+                <propertyInstance
+                  Id="3eba6e51-4de3-4121-9600-9c1e9bcb04ad"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="77ffac18-03a2-4235-b42f-c91a5700cd59">
+                <propertyInstance
+                  Id="55deab3f-fa82-4fa0-92b5-d748cc1fd279"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d5740a7b-c975-4d16-8a69-c50954bd3f49">
+                <propertyInstance
+                  Id="20eaac5b-0dc0-48dd-9bb7-1d4bb68909ca"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="508e23bd-30e5-497b-8350-faaac20cfcb5"
+        name="TG_LANGUAGE"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="42f83ece-b832-4ed3-a37f-aac4ac0f1db8"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisEntities%2Fbin%2FDebug%2FToguisEntities.dll Namespace%3DToguisModel Type%3DTG_LANGUAGE"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="92a1d93b-7dcc-4a6e-a38a-1ab7d51b7973"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a3d17ea8-84fc-446b-ac09-a5a54bc69f65">
+                <propertyInstance
+                  Id="f7de5938-bc8f-45f7-8a5f-123fd3dfb163"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="72eb07a3-3456-44d7-99c9-23bf703c05f6">
+                <propertyInstance
+                  Id="f6a2b664-abe8-492d-b66e-6cb0c44b4762"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4628afc6-7a3a-4f5e-9e8c-689420589f82">
+                <propertyInstance
+                  Id="936014bb-f8c9-4bb8-b7cd-0ec87fdc3f1a"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fad9f9b8-f7e9-44b5-a407-5f8839ac66e0">
+                <propertyInstance
+                  Id="e3c7419c-f6e6-4ead-a522-7ebcf99c2b64"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fb012307-10ee-4163-b60d-bdee55294282">
+                <propertyInstance
+                  Id="de3c83ed-53fd-4171-8cf1-c9e44ee83d13"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b5e5c7b6-936c-47ec-a475-f713ace5e433"
+        name="TG_USER"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="e4e6f1ab-5599-466d-a8d7-cfc769367cac"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2Fvarios%2FUniversidad%2FProyecto%2FCodigo%2FToguisWebServices%2FToguisEntities%2Fbin%2FDebug%2FToguisEntities.dll Namespace%3DToguisModel Type%3DTG_USER"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="f67dd405-38a1-475e-a8fc-47129132b974"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e929dba7-9aa3-4b03-82e5-62a06ae1c56d">
+                <propertyInstance
+                  Id="705f23f2-cebb-49af-85ed-505f4aa685d0"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="27a02034-43e2-4bdc-a9ac-778eacab070a">
+                <propertyInstance
+                  Id="eab64cee-5314-42dd-905c-44020583fefa"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ccaeb3e2-4cb6-4d39-bed9-22af6ad8eb1b">
+                <propertyInstance
+                  Id="e596ce58-40d1-4439-822e-b48bc80b10dd"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="db509d0c-14f2-49d4-9c2b-8f15971c85f7">
+                <propertyInstance
+                  Id="0d2da3de-f775-495d-8fed-d9794d3c9fe2"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5f59800e-ab28-481c-91a8-f94561b755c9">
+                <propertyInstance
+                  Id="57287fe8-19e8-4aed-aa33-e71ee9e7f7c5"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

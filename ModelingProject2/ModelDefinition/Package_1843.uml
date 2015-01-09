@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="b972f6e4-071f-4fdf-85a2-bbd88c6a00d3"
+  name="ToguisController"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="3b1e891d-8a4a-42b6-8cb2-e6ef93f4d315"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DToguisController"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="af860e31-b33c-4738-80aa-9d935771c572"
+        LastKnownName="Points"
+        LastKnownLocation="Package1_1843.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="9b784021-a68e-468d-8a12-9381efffcbb5"
+        LastKnownName="Security"
+        LastKnownLocation="Package_1844.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

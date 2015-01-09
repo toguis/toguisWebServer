@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 17.5, 8.5" name="UMLClassDiagram1">
+  <logicalClassDesignerModelMoniker Id="8dd4b1ca-079b-4e23-bfbc-7df373df7340" />
+  <nestedChildShapes>
+    <classShape Id="309dc0f3-d61c-40cd-8c2c-a79050c5068c" absoluteBounds="0.5, 1.75, 16.75, 3.2698668048779158" hideQualifiedName="false" increaseHeight="0.18800345897674561" customColor="181, 193, 223">
+      <classMoniker Id="b6c067a9-b9f0-4473-9953-f040f8e39357" LastKnownName="PointOfInterestController" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="f99f91d9-1bbf-42f4-919a-d03a83520cf0" absoluteBounds="0.5149999999999999, 2.2653356393178306, 16.72, 0.2011718675494194" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="b86faf86-e9f9-41be-98dc-fa86cbb344e0" absoluteBounds="0.5149999999999999, 2.4765075068672497, 16.72, 2.4433592980106669" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d3323392-907a-4e44-9ba2-bdf6c62cdf15" absoluteBounds="8, 0.5, 1.5, 1.8284605995814012" hideQualifiedName="false" increaseHeight="0.18800345897674561" customColor="181, 193, 223">
+      <classMoniker Id="663a5ad2-1fa9-414e-ab76-edbe8d67767b" LastKnownName="SecurityController" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="b8dfa527-29bc-4839-8b72-c16b1ec3108f" absoluteBounds="8.015, 1.01533563931783, 1.4700000000000002, 0.2011718675494194" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="69b46348-0ba4-4cb2-8867-18308fbc35e4" absoluteBounds="8.015, 1.2265075068672502, 1.4700000000000002, 1.0019530927141509" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</logicalClassDesignerDiagram>
