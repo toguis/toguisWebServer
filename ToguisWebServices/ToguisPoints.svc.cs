@@ -62,6 +62,8 @@ namespace ToguisWebServices
         public int SetComment(ToguisModel.TG_COMMENTS comment)
         {
             PointOfInterestController loController = new PointOfInterestController();
+            string lsDecodeComment = HttpUtility.UrlDecode(comment.COM_COMMENT);
+            comment.COM_COMMENT = lsDecodeComment;
             return loController.SetComment(comment);
         }
 
