@@ -161,7 +161,7 @@ namespace ToguisController.Points
                                         group item by item.POI_ID into d
                                         select new { SumItems = d.Sum(p => p.UDAT_RATING) / d.Count() }).FirstOrDefault();
 
-                        loResult.RATING = (float)loRating.SumItems;
+                        loResult.RATING = loRating != null ? (float)loRating.SumItems : 0;
                     }
                     catch (Exception)
                     {
@@ -219,7 +219,10 @@ namespace ToguisController.Points
 
         public int SetComment(TG_COMMENTS comment)
         {
-
+            if(comment.COM_COMMENT.Equals(""))
+            {
+                return 2;
+            }
             using (ToguisEntities loContext = new ToguisEntities())
             {
                 try
