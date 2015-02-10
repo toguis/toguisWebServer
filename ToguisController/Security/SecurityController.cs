@@ -18,6 +18,11 @@ namespace ToguisController.Security
 {
     public class SecurityController
     {
+        /// <summary>
+        /// Get an user
+        /// </summary>
+        /// <param name="login">System username</param>
+        /// <returns>Returns a TG_USER object</returns>
         public TG_USER GetUser(string login)
         {
             TG_USER loResult = null;
@@ -38,6 +43,11 @@ namespace ToguisController.Security
             return loResult;
         }
 
+        /// <summary>
+        /// Allow to create an user
+        /// </summary>
+        /// <param name="user">TG_USER object that contains user information</param>
+        /// <returns>Return 0 if insertion is ok, 1 if there is a DB update exception and 2 if there is different exception</returns>
         public int CreateUser(TG_USER user)
         {
             using (ToguisEntities loContext = new ToguisEntities())
@@ -60,6 +70,11 @@ namespace ToguisController.Security
             return 0;
         }
 
+        /// <summary>
+        /// Update an user
+        /// </summary>
+        /// <param name="user">TG_USER object that contains user information</param>
+        /// <returns>Return 0 if insertion is ok, 1 if there is a DB update exception and 2 if there is different exception</returns>
         public int UpdateUser(TG_USER user)
         {
             using (ToguisEntities loContext = new ToguisEntities())
@@ -82,6 +97,11 @@ namespace ToguisController.Security
             return 0;
         }
 
+        /// <summary>
+        /// Create an user guid in order to recover a password
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public int RecoverUser(String email)
         {
             using (ToguisEntities loContext = new ToguisEntities())
